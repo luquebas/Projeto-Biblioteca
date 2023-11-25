@@ -5,7 +5,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Red Hat Display';
+    transition: all .6s;
 }
+
 
 a{
     text-decoration: none;
@@ -26,7 +28,6 @@ main {
     border-radius: 12px;
     box-shadow: 0 14px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    transition: 1s;
 }
 
 #form-container {
@@ -46,13 +47,12 @@ main {
 }
 
 .form-login {
-    background-color: white;
-    transition: 1s;
+    transition: 0.6s;
 }
 
 .form-registro {
     background-color: white;
-    transition: 1s;
+    transition: 0.6s;
 }
 
 .form-login h2 {
@@ -98,7 +98,7 @@ main {
     border-radius: 50%;
     font-size: 1.2rem;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    transition: .5s;
+    transition: .6s;
     background-color: var(--icon-color);
     cursor: pointer;
 }
@@ -177,7 +177,7 @@ main {
     font-size: 1rem;
     font-weight: 800;
     color: var(--primary-color);
-    transition: .5s;
+    transition: .6s;
 
 }
 
@@ -235,7 +235,7 @@ main {
 }
 
 /*estilização bloco transitivo*/
-#overlay {
+.overlay {
     position:absolute;
     display: flex;
     flex-direction: column;
@@ -244,18 +244,18 @@ main {
     padding: 100px 42px 100px 42px;
     width: 100%;
     height: 100%;
-    background: linear-gradient(270deg, rgb(56, 56, 255), rgb(76, 237, 255));
+    background: linear-gradient(270deg, rgb(37, 37, 220), rgb(76, 192, 255));
     color: var(--text-color-light);
     transition: 1s;
 }
 
-.login_container.move #overlay:nth-child(2) {
+.login_container.move .overlay:nth-child(2) {
     z-index: -1;
     opacity: 0;
 }
 
 /*h2 do bloco de transição*/
-#overlay h2 {
+.overlay h2 {
     font-weight: 400;
     font-size: 2.4rem;
 }
@@ -270,7 +270,7 @@ main {
     font-size: 1rem;
     font-weight: 800;
     color: var(--text-color-light);
-    transition: .5s;
+    transition: .6s;
 }
 
 .animate-button:hover {
@@ -279,11 +279,8 @@ main {
     transform: translateY(-15%);
 }
 
-/*responsividade mobile*/
-.mobile-texts {
-    display: none;
-}
 
+/*responsividade mobile*/
 
 @media (max-width:768px) {
     #camada {
@@ -299,6 +296,7 @@ main {
         width: 100vw;
         height: 100vh;
         box-shadow: none;
+        border-radius: 0; /* retirar a borda de 12px para não ficar com as pontas aparecendo na tela */
     }
 
     .form-registro {
@@ -319,4 +317,117 @@ main {
     .mobile-texts a {
         font-weight: 800;
     }
+}
+
+
+/* dark mode */
+.menu-bar .mode .sun-moon i {
+    position: absolute;
+ }
+ .mode .sun-moon i.sun {
+    opacity: 0;
+ }
+ body.dark .mode .sun-moon i.sun {
+    opacity: 1;
+ }
+ body.dark .mode .sun-moon i.moon {
+    opacity: 0;
+ }
+ .bi-moon-fill {
+  color: dodgerblue;
+  filter: drop-shadow(1px 1px 1px black);
+ }
+ .bi-brightness-high-fill {
+  color: rgb(255, 108, 10);
+  filter: drop-shadow(1px 1px 1px black);
+ }
+ .mode-text {
+    color: black;
+ }
+ 
+ .item-menu {
+    list-style: none; /* retirar a bolinha do <li> presente no botão do tema dark */
+    z-index: 999; /* sobrepor o botão ao overlay */
+ }
+#tema-dark {
+  position: relative;
+  height: 33px;
+  width: 66px;
+  border-radius: 18px;
+  transition: var(--tran-05);
+  background-color: transparent;
+  border: 2px solid rgb(36, 97, 159);
+  outline: none;
+ }
+ #tema-dark::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  background-color: rgb(88, 171, 255);
+  box-shadow: inset 0 0 4px 1px rgb(17, 73, 129);
+  border: 1px solid black;
+  transition: all 0.4s;
+  z-index: 999; /* sobreposição do botão */
+ }
+ body.dark#tema-dark::before {
+    left: 20px; /* mover o círculo do botão */
+ }
+svg {
+    margin: 0 4px; /* margem criada entre os ícones de lua e sol */
+}
+
+
+ /* toda estilização do tema dark, que foi definido no JavaScript pela adição da classe 'dark' aos elementos: */
+ body.dark {
+    background: #121212;
+ }
+ 
+ .dark .form-login, .dark .form-registro {
+    background-color: #333;
+    color: #fff;
+ }
+ 
+ .dark .form-login h2, .dark .form-registro h2 {
+    color:rgb(88, 171, 255);
+ }
+ 
+ .dark .form-login p, .dark .form-registro p {
+    color: white;
+ }
+.dark .form-input, .dark .form-input::placeholder {
+    color: #fff; /* mudar a cor do input e do placeholder do gerador de senha forte, para tornar a visualização mais visível */
+} 
+
+ .dark .login-button, .dark .register-button, .dark .animate-button {
+    color:rgb(88, 171, 255);
+    border-color:rgb(88, 171, 255);
+ }
+ 
+ .dark .login-button:hover, .dark .register-button:hover, .dark .animate-button:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: black;
+ }
+
+ .dark #tema-dark {
+    background-color: #fff;
+}
+
+.dark #tema-dark::before {
+    border: 1px solid black;
+    /* left: 18px; o círculo interno sairá da esquerda para a direita */
+    left: 36px;
+    /* transition: var(--tran-03);  */
+    transition: all 0.4s;
+}
+.dark #overlay1, .dark #overlay2 {
+    background: linear-gradient(270deg,#121212,#575757 );
+    /* background: linear-gradient(270deg,rgb(63, 135, 207), #575757 ); */
+    /* background: #555; */
+    /* background: rgb(64, 95, 126); */
 }

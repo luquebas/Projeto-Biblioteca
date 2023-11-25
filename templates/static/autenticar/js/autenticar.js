@@ -1,4 +1,4 @@
-const loginContainer = document.getElementById('login_container')
+const loginContainer = document.getElementById('login_containerId')
 const btnCadastrar = document.getElementById('btnCadastrar')
 const btnEntrar = document.getElementById('btnEntrar')
 const aLogin = document.getElementById('registroMobileLogin')
@@ -87,3 +87,45 @@ function copiar () {
     
     var senhaCopiar = document.querySelector("#icon-copiarSenha")
     senhaCopiar.addEventListener('click', copiar)
+
+
+    const btnJs = document.getElementById("tema-dark"); // Pegando o botão do HTML
+    btnJs.addEventListener('click', alternarTema); // Adicionando função ao botão
+    
+    function alternarTema() {
+       // guardando elementos em variáveis
+       const body = document.body;
+       const formLogin = document.querySelector('.form-login')
+       const overlay = document.querySelector('.overlay')
+       const titles = document.querySelector('.titles')
+       const form = document.getElementsByTagName('form')
+       const overlay1 = document.querySelector('#overlay1')
+       const overlay2 = document.querySelector('#overlay2')
+
+       // se body conter a classe '.dark'
+       if (body.classList.contains('dark')) {
+           // Modo claro
+           // remover 
+           body.classList.remove('dark');
+           overlay.classList.remove('dark')
+           formLogin.classList.remove('dark')
+           titles.classList.remove('dark')
+           form.classList.remove('dark')
+           overlay1.classList.remove('dark')
+           overlay2.classList.remove('dark')
+       } else {
+           // Modo escuro
+           body.classList.add('dark');
+           formLogin.classList.add('dark')
+           overlay.classList.add('dark')
+           titles.classList.add('dark')
+           form.classList.add('dark')
+           overlay1.classList.add('dark')
+           overlay2.classList.add('dark')
+
+           // icons.forEach((icon) => {
+           //    icon.classList.add('dark');
+           // });
+       }
+    }
+    

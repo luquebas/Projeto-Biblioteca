@@ -7,8 +7,8 @@ A library system based on `python3.11` and `Django4.2`.
 |||
 | -- | -- |
 |Back-end| [![Back_Technologies](https://skillicons.dev/icons?i=python&theme=dark)](https://skillicons.dev)|
-|Front-end | [![Front_Technologies](https://skillicons.dev/icons?i=html,css,js,bootstrap&theme=dark)](https://skillicons.dev)|
-| Frameworks | [![Front_Technologies](https://skillicons.dev/icons?i=django&theme=dark)](https://skillicons.dev)|
+|Front-end| [![Front_Technologies](https://skillicons.dev/icons?i=html,css,js,bootstrap&theme=dark)](https://skillicons.dev)|
+|Frameworks| [![Front_Technologies](https://skillicons.dev/icons?i=django&theme=dark)](https://skillicons.dev)|
 |Database| [![Technologies](https://skillicons.dev/icons?i=postgresql&theme=dark)](https://skillicons.dev)|
 |Environments| [![Technologies](https://skillicons.dev/icons?i=vscode,github,googlecloud&theme=dark)](https://skillicons.dev)|
 |Other Technologies Used| [![Technologies](https://skillicons.dev/icons?i=git,figma&theme=dark)](https://skillicons.dev)|

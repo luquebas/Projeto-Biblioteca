@@ -1,17 +1,17 @@
 # Projeto Biblioteca Senai ∙ Araguaína - TO
 🌍
-* [ Português ] ( README.md ) ∙ [ Inglês ] ( README-en.md ) *
+*[Português]( README.md ) ∙ [Inglês](README-en.md)*
 
-Um sistema biblioteca construído utilizando ` python3.11` e ` Django4.2` .
+Um sistema biblioteca construído utilizando `python3.11` e `Django4.2`.
 
 |||
 | -- | -- |
-| Back-end |  [ ![ Back_Technologies ] ( https://skillicons.dev/icons?i=python&theme=dark )] ( https://skillicons.dev ) |
-| Front-end |  [ ![ Front_Technologies ] ( https://skillicons.dev/icons?i=html,css,js,bootstrap&theme=dark )] ( https://skillicons.dev ) |
-| Estruturas |  [ ![ Front_Technologies ] ( https://skillicons.dev/icons?i=django&theme=dark )] ( https://skillicons.dev ) |
-| Banco de Dados |  [ ![ Tecnologias ] ( https://skillicons.dev/icons?i=postgresql&theme=dark )] ( https://skillicons.dev ) |
-| Ambientes |  [ ![ Tecnologias ] ( https://skillicons.dev/icons?i=vscode,github,googlecloud&theme=dark )] ( https://skillicons.dev ) |
-| Outras tecnologias utilizadas |  [ ![ Tecnologias ] ( https://skillicons.dev/icons?i=git,figma&theme=dark )] ( https://skillicons.dev ) |
+|Back-end|  [![Back_Technologies](https://skillicons.dev/icons?i=python&theme=dark)]( https://skillicons.dev ) |
+|Front-end|  [![ Front_Technologies]( https://skillicons.dev/icons?i=html,css,js,bootstrap&theme=dark )]( https://skillicons.dev ) |
+|Estruturas|  [![ Front_Technologies ]( https://skillicons.dev/icons?i=django&theme=dark )]( https://skillicons.dev ) |
+|Banco de Dados| [![ Tecnologias ]( https://skillicons.dev/icons?i=postgresql&theme=dark )]( https://skillicons.dev ) |
+|Ambientes|  [![ Tecnologias ](https://skillicons.dev/icons?i=vscode,github,googlecloud&theme=dark )]( https://skillicons.dev ) |
+|Outras tecnologias utilizadas| [![Tecnologias](https://skillicons.dev/icons?i=git,figma&theme=dark)](https://skillicons.dev) |
 
 ## Principais características
 - Login OAuth suportado - Google.

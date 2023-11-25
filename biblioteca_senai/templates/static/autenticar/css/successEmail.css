@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Poppins:wght@100;300&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif; /* Corrigi a grafia da font-family para 'Poppins' */
+        box-sizing: border-box; /* Garante que o padding não afete a altura total */
+    }
+    /* imagem de fundo */
+    /* body #background {
+        position: relative;
+        z-index: -999;
+        opacity: 0.8;
+        filter: blur(2px);
+    } */
+    #container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    }
+main img {
+    width: 100%;
+    max-width: 140px;
+    /* max-width: 220px; */
+    /* margin: 0 auto; */
+}
+
+main {
+    position: absolute;
+    background-color: #262A33;
+    width: 80%; /* criar uma margem independente do tamanho da tela */
+    max-width: 360px;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    color: #fff;
+    letter-spacing: 1px;
+}
+#senai-info {
+    display: inline-flex; /* manter o logo e o nome na mesma linha */
+    height: 50px; /* altura desta section */
+    color: dodgerblue;
+    justify-content:space-between; /* manter a logo e o nome separados */
+    align-items: center; /* centralizar elementos no eixo-y */
+}
+#success{
+    font-size: 1rem;
+    text-align: center;
+}
+#success img {
+    max-width: 100px; /* tamanho máximo das imagens */
+    margin: 0 6px; /* margem para as imagens não ficarem coladas */
+}
+.btn-form {
+    padding: 8px;
+    color: #fff;
+    background-color: transparent; /* manter a cor dos buttons igual à do background de fundo deles */
+    border: 2px inset #fff; /* inset: tipo de borda 3d */ 
+    transition: all .4s; /* aplicar transição aos buttons ** importante para a estilização de mudança de background no :hover (ida e volta) */
+}
+.btn-form:hover {
+    background-color: #354d87;
+}
+#btn-voltar {
+    width: 100%; /* ocupar toda main - padding */
+    margin: 12px 0 0 0; /* margem para os botões de cima */
+    text-transform: uppercase; /* transformação do texto para maiúsculas */
+}
+@media (max-width: 561px) {
+    main {
+        padding: 12px;
+        font-size: 0.8rem;
+    } 
+    #senai-email {
+        font-size: 0.5rem;
+    }
+    main input {
+        min-height: 24px;
+    }
+}

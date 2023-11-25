@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação</title>
+    <link rel="stylesheet" href="{% static '/autenticar/css/codigoVerify.css' %}">
+</head>
+<body>
+    <div id="container">
+        <main>
+            <section id="senai-info">
+                <img src="{% static '/autenticar/img/senai-logo.png' %}" alt="Senai-TO logo">
+                <h2>SENAI-TO</h2>
+            </section>
+            
+            <h2>Insira o código abaixo:</h2>
+        <form action="{% url 'codigo_verify' %}" method="post"> {% csrf_token %}
+            <section id="section-inputs">
+                <input type="text" maxlength="1" pattern="\d" required name="num1">
+                <input type="text" maxlength="1" pattern="\d" required name="num2">
+                <input type="text" maxlength="1" pattern="\d" required name="num3">
+                <input type="text" maxlength="1" pattern="\d" required name="num4">
+                <input type="text" maxlength="1" pattern="\d" required name="num5">
+                <input type="text" maxlength="1" pattern="\d" required name="num6">
+            </section>
+
+            <section id="section-btn">
+                <button type="button" id="btn-reenviar" class="btn-form"> 
+                    <span class="button-container">
+                        <a href="{% url 'esqueci_senha' %}"> Voltar à página anterior </a>
+                    </span>
+                </button>
+
+                <button type="submit" id="btn-enviar" class="btn-form"> 
+                    <span class="button-container">Verificar código</span>
+                </button>
+            </section>
+        </form>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li class="errors">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </main>
+    </div>
+</body>
+</html>

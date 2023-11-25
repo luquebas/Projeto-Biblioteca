@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red;
+    background-color: rgb(39, 103, 241); */
+    width: 100vw;
+    height: 10vh;
+    background-color: transparent;
+}
+
+
+#icon-logout {
+    font-size: 2rem; /* fonte em rem para se adaptar à tela */
+    cursor: pointer; /* mudar o cursor do mouse para o icon de logout */
+    color: #fff;
+    margin-left: 12px; /* logout com margem direita à input-search */
+    transition: 0.2s;
+}
+#icon-logout:hover {
+    color: rgb(9, 64, 119);
+    transition: 0.3s;
+}
+.content {
+    margin-left: 200px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.element-content {
+    height: 320px;
+    width: 200px;
+    color: dodgerblue;
+    margin-top: 24px;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    border: none;
+    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.element-content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
+}
+
+#text-name {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#formfield {
+  margin-top: 5px;
+}
+
+#btn-disponivel {
+  border-radius: 5px;
+  border: none;
+  background-color: #e5e9f2;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  width: 11rem;
+
+}
+
+#imgLivro {
+  cursor:pointer;
+}
+
+.h1-emprestimo-livros {
+    font-size: 2rem;
+    color: rgb(25, 132, 239)
+}
+
+.h1-mobile-emprestimo-livros {
+    display: none;
+}
+
+
+/* telas de ipad */
+@media screen and (min-width: 728px) and (max-width: 1024px) {
+    .header-top {
+      width: 100vw;
+      height: 50px;
+      margin-right: 20px;
+      padding: 10px;
+
+    }
+  
+    .h1-emprestimo-livros {
+      font-size: 1rem;
+    }
+    #icon-logout {
+      font-size: 1.5rem; /* Reduzir o tamanho do ícone */
+      margin-left: 6px; /* Reduzir a margem à esquerda */
+    }
+  }
+
+/* Dentro da regra de mídia para telas menores de 728px (tablets) */
+@media screen and (max-width: 728px) {
+    .header-top {
+      width: 77vw; /* tamanho do container invisível da search-box e logout */
+      height: 40px;
+      margin-top: 6px;
+      margin-left: 80px; /* Reduzir a margem à esquerda */
+      margin-right: 20px; /* Adicionar uma margem à direita para acomodar a barra de pesquisa */
+      padding: 10px;
+      background-color: transparent;
+      box-shadow: none;
+    }
+  
+    #icon-logout {
+      font-size: 1.5rem; /* Reduzir o tamanho do ícone */
+      color: dodgerblue;
+    }
+  
+    .header-top .input-container {
+      margin-left: 1%;
+    }
+    .h1-emprestimo-livros {
+        display: none;
+    }
+    .h1-mobile-emprestimo-livros {
+      display: flex;
+      justify-content: center;
+      margin-left: 50%;
+      margin-top: 12px;
+      color: rgb(25, 132, 239);
+      font-size: 1.5rem;
+    }
+    .content {
+        margin-left: 100px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+  }
+  
+@media screen and (max-height: 900px) {
+
+  .header-top {
+    margin-right: 500px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  h1 {
+    font-size: 26px;
+  }
+
+  #form_button {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+
+}
+

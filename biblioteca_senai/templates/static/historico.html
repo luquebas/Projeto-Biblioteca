@@ -1,0 +1,67 @@
+{% extends 'static/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>SideBar</title>
+    <link rel="stylesheet" href="{% static '/autenticar/css/historico.css' %}">
+    {% endblock %}
+    <script src="autenticar/js/menu.js" defer></script>
+</head>
+<body>
+  {%block content%}
+    <!-- criar container para texto (ter margem à esquerda) -->
+    <div class="header-top">
+      <!-- <h1 class="h1-senai-tocantins">SENAI - TOCANTINS</h1> -->
+      <h1 class="h1-emprestimo-livros">Histórico</h1>
+        <div class="input-container">
+            <!--<input type="text" class="input-search-js" name="input-search" id="input-search" placeholder="Buscar livro"> -->
+          </div>
+    </div>
+    <div id="container">
+        <div class="table-widget">
+        <table>
+            <thead>
+                <tr>
+                    <th id="dwnld-column">Nome</th>
+                    <th id="dwnld-column">Livro</th>
+                    <th id="dwnld-column">E-mail</th>
+                    <th id="dwnld-column">Data</th>
+                    <th id="dwnld-column">Download PDF</th>
+                </tr>
+                {%for emprestimo in emprestimos%}
+                <tr>
+                    <th>{{emprestimo.name}}</th>
+                    <th>{{emprestimo.book}}</th>
+                    <th>{{emprestimo.email}}</th>
+                    <th>{{emprestimo.date}}</th>
+                    <th>
+                        <a href="#" download="{{emprestimo.name.pdf}}">
+                            <i id="dwnld" class="bi bi-download"></i>
+                        </a>
+                    </th>
+                </tr>
+                {%endfor%}
+            </thead>
+            <tbody id="team-member-rows">
+                <!-- 7 rows are generated -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <ul class="pagination">
+                        </ul>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>  
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Poppins:wght@100;300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: Montserrat;
+}
+/* Aplica a transição suave a toda a página */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
+  }
+  
+h1 {
+    color: #fff;
+}
+
+
+#background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden; /* Adicione essa linha para garantir que nada ultrapasse as dimensões */
+}
+
+#background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#background::after {
+  content: '';
+  width: inherit; /* herdando valor do pai */
+  height: inherit;
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 8, 10, 0.554);
+}
+
+a {
+    text-decoration: none;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 8vh;
+}
+#app {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+header {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%; /* tamanho do header */
+    /* background: transparent; */
+}
+/* logotipo senai-to do header */
+header img {
+    width: 130px;
+    height: auto;
+}
+/* container dos três links (senai, cursos, diretoria) */
+.navigation {
+    display: flex;
+    align-items: center;
+    margin-left: 64px; /* container sendo arrastado para não ficar colado ao logotipo */
+    column-gap: 45px; /* distância interna dos links (tipo um padding) */
+}
+li {
+    list-style: none; /* evitar que os links fiquem com sublinhado após serem clicados  */
+}
+.navigation-link {
+    font-size: 14px;
+    letter-spacing: 3px; /* espaçamento entre as letras de cada link */
+    text-transform: uppercase; /* transformação automática para maiúsculas */
+    position: relative; /* ::after será relativo ao li para o bottom renderizar no <a> */
+}
+.navigation-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* não ficar colado ao texto */
+    width: 100%;
+    height: 1px;
+    background-color: dodgerblue;
+    transform: scaleX(0); /* reduzir o tamanho do elemento a 0 (ele só aumentará com hover) */
+    transform-origin: right;
+    transition: transform 0.4s;
+}
+.navigation-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.4s;
+}
+nav .navigation-social {
+    position: absolute;
+    margin-left: 110vw; /* distância dos icons para os links */
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* links em comportamento de linha */
+}
+
+header svg {
+    width: 30px;
+    opacity: .7;
+    transition: all 0.4s;
+}
+svg {
+    height: 20px;
+    margin-left: 24px;
+}
+header svg:hover {
+    opacity: 1; /* os icons ficarão branco, pois terão opacidade mínima */
+    transform:translateY(-5px); /* os icons darão um salto de 5px para cima */
+    cursor: pointer; /* icons serão passíveis de cliques */
+}
+
+/*  */
+.mobile-menu {
+  display: none; /* só aparecerá para mobile */
+  cursor: pointer;
+}
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background-color: #FFF;
+  margin: 8px;
+}
+.container-info {
+    /* flex: 1; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.main-info {
+    width: 540px;
+    margin-top: 6%; /* espaçamento ao topo do header */
+    margin-left: 5%; /* espaçamento à lateral esquerda da tela */
+  }
+  
+  .content-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Espaço entre o título e o conteúdo */
+  }
+  
+  #img-student {
+    max-width: 100%; /* Certifique-se de que a imagem não fique muito grande */
+    height: auto; /* Mantenha a proporção da imagem */
+    margin-left: 20px; /* Espaço entre a imagem e o parágrafo */
+  }
+  
+  /* Estilize o parágrafo conforme necessário */
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+#img-student {
+    width: 100%;
+    max-width: 35%;
+    position: absolute;
+    bottom: 0;
+    /* left: 0; */
+    right: 0;
+    margin: auto;      
+    margin-right: 20px;
+}
+h1 {
+    font-size: 52px;
+    color: rgb(103, 179, 255);
+}
+#acessar-biblioteca {
+    margin-top: 12px;
+    font-size: 16px;
+    height: 36px;
+    width: 260px;
+    border-radius: 6px;
+    border: 1px solid dodgerblue;
+    background-color: transparent;
+    box-shadow: inset 0 0 16px 3px dodgerblue;
+    text-shadow: -1px 1px 1px black; /* efeito 3d no texto do botão */
+    transition: all 0.4s;
+}
+#acessar-biblioteca:hover {
+    box-shadow: inset 0 0 32px 10px dodgerblue;
+    cursor: pointer; /* representação gráfica para ser um botão 'clicável' */
+}
+
+/* ________________________________________________  */
+
+.wrapper{
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    /* left: 0; */
+    right: 0;
+    margin: auto;    
+    margin: 0 auto;
+    top: 0;
+    margin-top: 100vh;
+  }
+  
+.main-parallax {
+    display: block;
+    background-color: dodgerblue;
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+/* Estilos padrão para links dentro de .nav-list */
+.nav-list a {
+  transition: filter 0.3s; /* Adicione uma transição suave para a mudança de filtro */
+}
+
+/* Quando .nav-list.active está ativo */
+.nav-list.active {
+  transform: translateX(0);
+}
+
+  .container{
+    width: 100%;
+    /* max-width: 760px; */
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  section.module p{
+    margin-bottom: 40px;
+  }
+  
+  section.module:last-child{
+    margin-bottom: 0;
+  }
+  
+  section.module h2{
+    margin-bottom: 40px;
+    font-size: 30px;
+  }
+  
+/* Define o estilo para a seção de conteúdo */
+section.module.content {
+   padding: 40px 0; /* Define o preenchimento interno superior e inferior */
+   background-color: rgb(65, 151, 236); /* Substitui a cor de fundo novamente */
+}
+
+/* Define o estilo para a seção de efeito parallax */
+section.module.parallax {
+    display: flex; /* Define um layout flexível */
+    flex-direction: column; /* Define a direção dos elementos como coluna */
+    justify-content: center; /* Alinha os elementos verticalmente ao centro */
+    height: 70vh !important; /* Define a altura da seção como 70% da altura da viewport, com !important para substituir regras anteriores */
+    width: 100%; /* Define a largura como 100% */
+    position: relative; /* Define a posição como relativa */
+    overflow: hidden; /* Esconde o conteúdo que ultrapassar a altura da seção */
+    background-position: 50% 50%; /* Define a posição do plano de fundo como centralizado */
+    background-repeat: no-repeat; /* Evita a repetição do plano de fundo */
+    background-attachment: fixed; /* Fixa o plano de fundo na viewport */
+    background-size: cover; /* Redimensiona o plano de fundo para cobrir a seção */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Adiciona um elemento pseudo ::after para criar um efeito de sobreposição no plano de fundo */
+section.module.parallax:after {
+    content: ""; /* Adiciona conteúdo vazio para o elemento pseudo */
+    height: 100%; /* Define a altura como 100% da seção */
+    width: 100%; /* Define a largura como 100% da seção */
+    position: absolute; /* Define a posição como absoluta, para que fique sobreposta */
+    z-index: 8; /* Define a ordem de empilhamento em relação a outros elementos */
+    background: -moz-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 60%, #000 100% ); /* Define um gradiente linear no elemento pseudo para criar uma sobreposição */
+    background: -webkit-linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 60%, #000 100% );
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 60%, #000 100% );
+}
+
+  
+  section.module.parallax-1{
+    background-image: url("https://cdn.wallpapersafari.com/18/72/WFCoBQ.jpeg");
+    /* background-image: url("https://images.pexels.com/photos/313782/pexels-photo-313782.jpeg?auto=compress&cs=tinysrgb&w=600"); */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* orientar vídeo dentro da tela */
+  }
+  
+  section.module.parallax-2{
+    background-image: url("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1546&q=80");
+  }
+  
+  section.module.parallax-3{
+    background-image: url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80");
+  }
+  
+  section.module.parallax h1{
+    width: 100%;
+    margin: auto; /* texto centralizado */
+    color: #FFF;
+    text-align: center;
+    font-size: 5rem;
+    z-index: 50;
+    text-transform: uppercase;
+  }
+  
+/* Centralizar texto em tabelas */
+table {
+  text-align: center;
+  border-collapse: collapse; /* Mesclar bordas das células */
+  width: 100%; /* Tornar a tabela responsiva */
+}
+
+/* Adicionar espaçamento à esquerda em células de tabela */
+th, td {
+  width: 25%; /* deixando as células com o mesmo tamanho para ficarem bem alinhadas */
+  padding: 12px; /* Adicionar espaçamento uniforme em todas as células */
+  border: 1px solid rgba(11, 94, 177, 0.838); /* Adicionar uma borda a todas as células */
+  transition: all 0.4s;
+}
+th {
+  background-color: rgba(14, 106, 199, 0.802);
+}
+td:hover {
+  background-color: rgba(90, 156, 249, 0.93);
+}
+/* Estilizar as tabelas 1 e 2 */
+#table1, #table2 {
+  align-items: center;
+}
+
+/* Ajustar o espaçamento à esquerda do cabeçalho da tabela 1 */
+
+/* Estilizar o contêiner para a tabela 2 e ajustar margem superior */
+#container-h2-table2 {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Estilizar títulos h2 da tabela 2 e h3 da tabela 3 */
+.h2-table2, .h3-table2 {
+  text-align: center;
+  color: rgba(15, 33, 68, 0.81);
+}
+.h3-table2 {
+  margin-bottom: 1%; /* para o h3 não ficar tão colados às <ths> abaixo dela */
+}
+
+/* Estilizar o elemento com id "diretoria-parallax" */
+#diretoria-parallax {
+    background-color: dodgerblue;
+}
+
+/* Ajustar margem superior para o título h2 da tabela 2 */
+.h2-table2 {
+  margin-top: 3%;
+}
+
+/* Estilizar a lista com id "ul-cursos" */
+#ul-cursos {
+  width: 96vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style-type: none;
+  border: 1px dashed rgba(11, 94, 177, 0.838);
+}
+.li-cursos {
+  width: 100%;
+  padding: 18px; /* para o texto não ficar colado um ao outro */
+  padding-right: 10px; /* espaçamento entre o texto e a borda */
+  border: 1px dashed rgba(11, 94, 177, 0.838);
+  transition: all 0.5s;
+}
+.li-cursos:hover {
+  background-color: rgba(25, 104, 183, 0.725);
+}
+strong {
+  color: rgba(0, 0, 0, 0.81);
+}
+.h2-parallax {
+  color: rgba(0, 0, 0, 0.81);
+}
+#logo-senai-nav {
+  margin-left: 16px;
+}

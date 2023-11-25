@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+
+body {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--body-color);
+    transition: 0.5s;
+}
+#container {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+.table-widget {
+width: 1100px;
+border-radius: 16px;
+background-color: var(--table-background);
+padding: 6px;
+padding-left: 0;
+border: 2px solid var(--gray-background);
+/* box-shadow: ; */
+text-align: left;
+overflow-x: auto;
+background: #fff;
+border: 2px solid black;
+background: linear-gradient(270deg, rgb(42, 91, 250), rgb(111, 132, 252));
+}
+.table-widget table {
+width: 100%;
+margin-top: 24px;
+border-collapse: collapse;
+}
+.table-widget th{
+padding: 16px 16px;
+font-size: 1rem;
+color: var(--gray);
+color: #fff;
+}
+/* .table-widget thead {
+border-top: 2px solid var(--gray-background);
+} */
+.table-widget tfoot {
+margin-top: 16px;
+/* border-top: 2px solid var(--gray-background); */
+}
+
+.table-widget td {
+padding: 8px 16px;
+vertical-align: middle;
+}
+.table-widget tbody tr {
+cursor: pointer;
+}
+.table-widget tbody tr:nth-child(odd) {
+background-color: var(--odd-row);
+}
+.table-widget tbody tr:hover {
+background-color: #f6f9ff;
+}
+input {
+border-radius: 4px;
+padding: 4px;
+}
+button {
+padding: 6px;
+border-radius: 6px;
+width: 120px;
+}
+h1 {
+text-align: center;
+text-transform: uppercase;
+font-size: 3rem;
+}
+
+#dwnld{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+#dwnld-column {
+    text-align: center;
+}
+

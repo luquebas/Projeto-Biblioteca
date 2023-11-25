@@ -1,0 +1,42 @@
+{% extends 'static/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    {% endblock %}
+</head>
+<body>
+    {%block content %}
+    <center>
+        <div>
+            <img src={{book.image}}>
+            <br>
+            {{book.nameBook}}
+            <br>
+            {{book.authorBook}}
+            <br>
+            {{book.descrição}}
+            <br>
+            {{book.estado}}
+            <br>
+            {{book.editoraBook}}
+            <br>
+            {{book.estoqueBook}}
+            <form method="POST" action="{% url 'deletebook' book.id %}">{% csrf_token %}
+                <button type="submit" id='formfield' class="form_button">Excluir</button>
+            </form>
+            <form method="GET" action="{% url 'updatebook' book.id %}">{% csrf_token %}
+                <button type="submit" id='formfield' class="form_button">Editar</button>
+            </form>
+        </div>
+    </center>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,99 @@
+
+:root {
+    /* --body-color: #4e9f74; */
+    --body-color: #fff;
+    --sidebar-color: #fff;
+    --primary-color: #dc143c;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+    --dark-color: #121212;
+}
+
+body.dark {
+    background-color: var(--dark-color);
+}
+
+body.dark #tema-dark.dark {
+    background-color: var(--sidebar-color);
+    background-color: #fff;
+    border: 1px solid black;
+}
+
+#tema-dark.dark::before {
+    border: 1px solid black;
+    /* left: 18px; o círculo interno sairá da esquerda para a direita */
+    left: 36px;
+    /* transition: var(--tran-03);  */
+    transition: all 0.4s;
+}
+
+#input-search.dark {
+    background-color: #fff;
+    box-shadow: inset 0 0 6px 1px black;
+    color: black;
+    outline: none; /* evitar sobreposição de borda no clique do mouse */
+}
+
+li.dark {
+    transition: var(--tran-05);
+    text-decoration: none;
+}
+
+/* .search-box {
+    pointer-events: none; /* evitar que hover não seja aplicado    
+} */
+
+.mode-text.dark {
+    color: #fff;
+}
+.nav-text.dark:hover {
+    color: #fff;
+}
+.sidebarJs.dark {
+    background-color: var(--dark-color);
+}
+
+.js-dark.dark {
+    color: dodgerblue;
+}
+.menu-lateral.dark {
+    border-right: 1px solid #1e96f9dd;
+    box-shadow: 2px 0 6px 1px #0c83d8c2;
+    background-color: var(--dark-color);
+}
+body.dark .element-content {
+    border: none;
+    /* box-shadow: inset 0 0 12px 2px rgba(255, 254, 254, 0.5); */
+}
+
+
+/* alterando botão temático (dark/light) para telas de celulares */
+@media screen and (max-width: 728px) {
+    .menu-lateral .toggle-switch #tema-dark {
+        /* margin-left: 5%; espaçamento dentro do menu lateral */
+        margin-left: 16%;
+        height: 33px;
+        width: 56px;
+
+    }
+    
+    #tema-dark i {
+        padding: 1px; /* espaçamento entre os ícones que estão dentro do botão */
+        font-size: 10px;
+    }
+    #tema-dark.dark::before {
+        /*
+        background-color: rgb(26, 225, 26); /* círculo interno do botão */
+        border: 1px solid black;
+        /* background-color: rgb(49, 211, 49); */
+        /* left: 18px; o círculo interno sairá da esquerda para a direita */
+        left: 16px;
+        transition: all 0.4s;
+    }
+
+    /* alterando círculo do botão temático para o celular */
+    #tema-dark.dark::before {
+        left: 26px;   
+    }
+}

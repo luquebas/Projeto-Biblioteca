@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Poppins:wght@100;300&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+    /* imagem de fundo */
+    /* body #background {
+        position: relative;
+        z-index: -999;
+        opacity: 0.8;
+        filter: blur(2px);
+    } */
+    #container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        padding: 20px;
+    }
+    input { /* definição dos inputs que receberão o código */
+        width: 100%;
+        outline: none; /* evitar marcação por clique */
+        height: 70px; /* altura dos inputs */
+        font-size: 2rem;
+        text-align: center; /* centralizar o texto dentro do input -> quando um caractere do código é digitado, ele fica centralizado */
+        margin: 0 6px; /* criar uma margem entre os próprios inputs, para que eles não fiquem colados uns aos outros */
+    }
+    
+    /* removendo, por seletor, a margem do primeiro input */
+    input:first-child {
+        margin-left: 0;
+    }
+    
+    /* removendo, por seletor, a margem do último input */
+    input:last-child {
+        margin-right: 0;
+    }
+main img { /* logotipo do senai */
+    width: 100%;
+    max-width: 140px;
+    /* max-width: 220px; */
+    /* margin: 0 auto; */
+}
+
+main {
+    position: absolute;
+    background-color: #262A33;
+    width: 80%; /* criar uma margem independente do tamanho da tela */
+    max-width: 460px;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    color: #fff;
+    letter-spacing: 1px;
+}
+#section-inputs {
+    display: flex; /* inputs alinhados; ** default flex-direction: row */
+}
+#senai-info {
+    display: inline-flex; /* manter o logo e o nome na mesma linha */
+    height: 50px; /* altura desta section */
+    color: dodgerblue;
+    justify-content:space-between; /* manter a logo e o nome separados */
+    align-items: center; /* centralizar elementos no eixo-y */
+}
+#section-btn {
+    width: 100%;
+    display: inline-flex; /* manter o logo e o nome na mesma linha */
+    height: 50px; /* altura desta section */
+    color: dodgerblue;
+    justify-content:space-between; /* manter a logo e o nome separados */
+    align-items: center; /* centralizar elementos no eixo-y */
+    margin: 16px 0 0 0; /* margin-top: 16px; margins right, left & bottom: 0 */
+}
+span {
+    font-size: 1rem;
+    font-family: poppins;
+}
+.btn-form {
+    padding: 8px;
+    color: #fff;
+    background-color: transparent; /* manter a cor dos buttons igual à do background de fundo deles */
+    border: 2px inset #fff; /* inset: tipo de borda 3d */ 
+    transition: all .4s; /* aplicar transição aos buttons ** importante para a estilização de mudança de background no :hover (ida e volta) */
+    cursor: pointer;
+}
+.btn-form:hover {
+    background-color: #354d87;
+}
+#btn-voltar {
+    width: 100%; /* ocupar toda main - padding */
+    margin: 12px 0 0 0; /* margem para os botões de cima */
+    text-transform: uppercase; /* transformação do texto para maiúsculas */
+}
+
+.errors {
+    color: red;
+    font-weight: 900;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 561px) {
+    main {
+        padding: 12px;
+        font-size: 0.8rem;
+    } 
+    #senai-email {
+        font-size: 0.5rem;
+    }
+    main input {
+        height: 55px;
+    }
+    span{
+        font-size: 0.8rem; /* diminuição da fonte dos span's */
+    }
+}

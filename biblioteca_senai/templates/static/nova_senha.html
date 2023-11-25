@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação</title>
+    <link rel="stylesheet" href="{%static '/autenticar/css/email.css' %}">
+</head>
+<body>
+    <!-- <img src="background-senai.png" id="background" alt=""> -->
+    <form action="{% url 'trocar_senha' %}" method="POST"> {% csrf_token %}
+        <div id="container">
+            <main>
+                <section id="senai-info">
+                    <img src="{% static '/autenticar/img/senai-logo.png'%}" alt="Senai-TO logo">
+                    <h2>SENAI-TO</h2>
+                </section>
+                <section id="senai-email">
+                    <h2>Informe sua nova Senha:</h2>
+                        {{trocar_senha_form.senha}}
+                        {{trocar_senha_form.senha2}}
+                </section>
+                <button type="submit" id="btn-enviar" class="btn-form"> 
+                    <span class="button-container">Confirmar nova Senha</span>
+                </button>
+                {% if trocar_senha_form.errors %}
+                <ul>
+                    {% for field, errors in trocar_senha_form.errors.items %}
+                    {% for error in errors %}
+                    <li class="errors">{{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </main>
+        </div>
+    </form>
+</body>
+</html>

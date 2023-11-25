@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SENAI-TO</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static '/autenticar/css/inicial.css' %}">
+  <link rel="stylesheet" href="{% static '/autenticar/css/mobile-inicial.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.3/smooth-scroll.min.js"></script>
+
+</head>
+
+<body>
+  <div id="background">
+    <video loop autoplay muted> <!-- vídeo infinito e automático sem volume -->
+      <source src="{% static 'autenticar/img/video.mp4' %}" type="video/mp4">
+      <!-- caminho do vídeo -->
+    </video>
+  </div>
+
+  <div id="app">
+    <header>
+      <nav>
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        
+        </div>
+        <img id="logo-senai-nav"src="https://logodownload.org/wp-content/uploads/2019/08/senai-logo-1-768x197.png" alt="Logotipo Senai-TO">
+      <ul class="navigation nav-list">
+      <li><a href="#nos-parallax" class="navigation-link">Senai</a></li>
+
+      <li><a href="#cursos-parallax" class="navigation-link">Cursos</a></li>
+
+      <li><a href="#diretoria-parallax" class="navigation-link">Diretoria</a></li>
+
+      <!-- <li><a href="#" class="navigation-link">More</a></li> -->
+      </ul>
+
+      <div class="navigation-social"> <!-- navegação das mídias sociais -->
+
+
+        <!-- instagram-icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram"
+          viewBox="0 0 16 16">
+          <path
+            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+        </svg>
+
+        <!-- linkedin-icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin"
+          viewBox="0 0 16 16">
+          <path
+            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+        </svg>
+
+        <!-- youtube-icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube"
+          viewBox="0 0 16 16">
+          <path
+            d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+        </svg>
+      </div>
+      <!-- https://www.designi.com.br/images/preview/10001821.jpg -->
+</nav>
+    </header>
+    <main class="container-info">
+      <div class="main-info">
+        <h1 id="h1-main">SENAI - TOCANTINS</h1>
+        <div class="content-wrapper">
+          <p>
+            O SENAI Tocantins é uma instituição de ensino técnico e profissionalizante de destaque no estado, oferecendo cursos em diversas áreas e preparando os estudantes para o mercado de trabalho. Sua qualidade de ensino e contribuição para o desenvolvimento da indústria local o tornam uma escolha sólida para uma educação técnica de alto nível e oportunidades de carreira promissoras.</p>
+          <img id="img-student" src="https://fema.com.br/public/thumb/61b4c80b-8d81-4e91-8cd7-5fc599c66208/755x840/student-support.png" alt="Estudante">
+        </div>
+          <a href="login_auth">
+            <button id="acessar-biblioteca" type="button">Acessar biblioteca</button>
+          </a>
+      </div>
+    </main>
+
+
+<!-- _______________________________________________________________ -->
+
+  </div>
+  <div class="wrapper">
+    <main class="main-parallax"> 
+      <section class="module parallax parallax-1">
+        <h1>Conheça o SENAI !</h1>
+      </section>
+
+      <section id="nos-parallax" class="module content">
+        <div class="container">
+          <h2 class="h2-parallax">Serviço Nacional de Aprendizagem Industrial (SENAI)</h2>
+          <p>
+            Criado no Brasil em 22 de janeiro de 1942, o Serviço Nacional de Aprendizagem Industrial (SENAI) é um dos cinco maiores complexos de educação profissional do mundo e o maior da América Latina. É uma entidade de direito privado, sem fins lucrativos, vinculada ao sistema sindical que atua na construção do futuro da indústria e da aprendizagem.
+          </p>
+          <p>
+            Oferta cursos em 28 áreas da indústria brasileira, desde a iniciação profissional até a graduação e pós-graduação tecnológica. Integrante do Sistema Indústria – ao lado da CNI/FIETO, do SESI e do IEL – o SENAI é reconhecido como modelo de educação profissional e pela qualidade dos serviços tecnológicos que promovem a inovação na indústria brasileira.
+          </p>          
+          <p>
+            O SENAI capacita e forma profissionais em cursos presenciais, semipresenciais e à distância que estão à disposição do estudante e das indústrias. Também mantém uma rede certificada de 208 laboratórios que prestam serviços técnicos e tecnológicos às empresas em todo o país. Saiba como o SENAI, o SESI e a CNI trabalham para a indústria brasileira, clicando aqui.
+          </p>
+        </div>
+      </section>
+
+      <section class="module parallax parallax-2">
+        <h1>Conheça nossos cursos !</h1>
+      </section>
+
+      <section id="cursos-parallax" class="module content">
+        <div class="container">
+          <h2 class="h2-parallax">Áreas englobadas em nossos cursos</h2>
+          <ul id="ul-cursos">
+            <li class="li-cursos"><strong>Alimentos e Bebidas:</strong> cursos relacionados à produção, qualidade e segurança alimentar.</li>
+            <li class="li-cursos"><strong>Automação Industrial:</strong> Cobrindo áreas como controle de processos industriais e instrumentação.</li>
+            <li class="li-cursos"><strong>Automotiva:</strong> Oferece cursos relacionados à manutenção e reparo de veículos automotores, abrangendo desde mecânica automotiva até eletrônica embarcada em automóveis.</li>
+            <li class="li-cursos"><strong>Construção Civil:</strong> Inclui cursos de pedreiro, carpinteiro, eletricista predial, entre outros.
+            </li>
+            <li class="li-cursos"><strong>Eletrônica e Eletrotécnica:</strong> Oferece cursos como eletricista industrial, técnico em eletrônica e automação industrial.</li>
+            <li class="li-cursos"><strong>Energia:</strong> Oferece cursos relacionados à geração, distribuição e manutenção de energia elétrica, bem como energia renovável e eficiência energética.
+            </li>
+            <li class="li-cursos"><strong>Gestão:</strong> Oferece cursos de gestão de empresas, recursos humanos, finanças e qualidade.
+            </li>
+            <li class="li-cursos"><strong>Gráfica e Editorial:</strong> Abrange cursos de produção gráfica, design gráfico, operação de máquinas de impressão e editoração.
+            </li>
+            <li class="li-cursos"><strong>Logística:</strong> Abrange cursos de gestão de estoque, transporte e distribuição.
+            </li>
+            <li class="li-cursos"><strong>Madeira e Mobiliário:</strong> Inclui cursos relacionados à marcenaria, produção de móveis, design de interiores e técnicas de carpintaria.
+            </li>
+            <li class="li-cursos"><strong>Meio Ambiente:</strong> Cursos relacionados à gestão ambiental e sustentabilidade na indústria.
+            </li>
+            <li class="li-cursos"><strong>Metalmecânica:</strong> Oferece cursos voltados para a usinagem, manutenção industrial e fabricação de peças metálicas.
+            </li>
+            <li class="li-cursos"><strong>Química:</strong> Aborda cursos relacionados à química industrial, controle de qualidade, análise laboratorial e processos químicos.
+            </li>
+            <li class="li-cursos"><strong>Refrigeração e Climatização:</strong> Oferece cursos para profissionais que desejam atuar na instalação e manutenção de sistemas de refrigeração e climatização.
+            </li>
+            <li class="li-cursos"><strong>Segurança do Trabalho:</strong> Fornece cursos para formação de técnicos em segurança do trabalho, uma área essencial para a prevenção de acidentes e saúde ocupacional.
+            </li>
+            <li class="li-cursos"><strong>Tecnologia da Informação:</strong> Inclui cursos relacionados à informática, como programação, desenvolvimento de software e suporte técnico.
+            </li>
+            <li class="li-cursos"><strong>Telecomunicações:</strong> Inclui cursos relacionados a redes de telecomunicações, instalação e manutenção de sistemas de comunicação, bem como tecnologias de informação e comunicação.
+            </li>
+            <li class="li-cursos"><strong>Vestuário:</strong> Fornece cursos de costura industrial, modelagem e confecção de roupas, capacitando os alunos a explorar a moda e adquirir habilidades essenciais para o desenvolvimento de peças de vestuário de alta qualidade.
+            </li>
+            
+          </ul>
+          <!-- <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem dignissimos! Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et, magnam eius!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem dignissimos! Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et, magnam eius!
+          </p>           -->
+        </div>
+      </section>
+
+      <section class="module parallax parallax-3">
+        <h1>Conheça nossa diretoria !</h1>
+      </section>
+
+      <section id="diretoria-parallax" class="module content">
+        <div class="container">
+          <h2 class="h2-parallax">Diretoria</h2>
+            <table id="table1">
+              <h2 class="h2-table2">Conselho regional</h2>
+
+              <thead id="thead-table1">
+                <tr>
+                  <th>Presidente do Conselho do SENAI DR/TO</th>
+                  <th>Diretora regional do SENAI DR/TO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Roberto Magno Martins</td>
+                  <td>Márcia Rodrigues de Paula</td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="container-h2-table2">
+            <h2 class="h2-table2">Delegados das atividades industriais</h2>
+            <h3 class="h3-table2">Representantes dos Sindicatos Efetivos</h3>
+          </div>
+            <table id="table2">
+              <thead>
+                <tr>
+                  <th>SINDUSCON</th>
+                  <th>SIQFAR</th>
+                  <th>SINDICATO</th>
+                  <th>SIME</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Diego Teodoro Carvalho</td>
+                  <td>Walter Atta Rodrigues</td>
+                  <td>Carlos Augusto Suzana</td>
+                  <td>Emilson Vieira Santos</td>
+                </tr>
+              </tbody>
+            </table>
+            
+        </div>
+      </section>
+
+    </main>
+  </div>
+  
+  <script src="{% static 'autenticar/js/inicial.js' %}">
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,865 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+:root {
+    /* --body-color: #4e9f74; */
+    --body-color: #fff;
+    --sidebar-color: #fff;
+    --primary-color: #dc143c;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body{
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--body-color);
+    transition: 0.5s;
+}
+
+nav.menu-lateral{
+  width: 100px;
+  height: 100%;
+  padding: 20px 0; /* espaçamento do topo */
+  /* box-shadow: 3px 0 0 #00ff11; */
+  border-right: 1px solid blue;
+  box-shadow: 2px 0 6px 1px rgba(41, 92, 144, 0.656);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition:.5s;
+  background-color: #fff;
+  justify-content: center;
+  overflow-y: auto; /* permitir que a sidebar tenha rolagem vertical */
+}
+
+/* scroll invisível */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);  */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);  */
+}
+
+nav.menu-lateral.expandir{
+    width: 300px;
+}
+
+nav .btn-expandir{
+    width: 100%;
+    padding-left: 45%;
+}
+.mode-text {
+    justify-content: center;
+}
+
+.btn-expandir > i{
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none; /* evitar que tenha apareça a estilização de link */
+}
+
+
+.item-menu {
+  margin-top: 30px;
+}
+ul li.item-menu a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 18px 20%; /* disposição dos ícones na tela */
+  display: flex;
+  margin-bottom: 20px;
+  line-height: 40px;
+  color: rgb(25, 132, 239);
+}
+ul {
+  margin-top: 55px;
+}
+
+#btn-exp {
+  color: rgb(25, 132, 239);
+}
+ul li.item-menu a:hover{
+  color: rgb(60, 194, 247);
+  transition: 0.2s;
+}
+
+ul li.item-menu a .txt-link{
+  opacity: 0;
+}
+
+nav.menu-lateral.expandir .txt-link{
+  margin-left: 30px; /* afastamento do texto dos ícones em relação aos próprios ícones */
+  opacity: 1;
+}
+
+ul li.item-menu a .iconnav > i{
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+
+
+
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -25%;
+    height: 25px;
+    width: 25px;
+    /* background-color: var(--primary-color); */
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+.sidebar .menu {
+    margin-top: 40px;
+}
+.sidebar li.search-box {
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+.sidebar li.search-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--tran-05);
+}
+.sidebar .menu-box {
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+/* .menu-bar::-webkit-scrollbar {
+    display: none;
+} */
+.sidebar .menu-bar .mode {
+    border-radius: 6px;
+    position: relative;
+    transition: var(--tran-05);
+}
+.menu-bar .mode .sun-moon {
+    height: 50px;
+    width: 60px;
+}
+.mode .sun-moon i {
+    position: absolute;
+}
+.mode .sun-moon i.sun {
+    opacity: 0;
+}
+body.dark .mode .sun-moon i.sun {
+    opacity: 1;
+}
+body.dark .mode .sun-moon i.moon {
+    opacity: 0;
+}
+
+/* texto de modo claro/escuro */
+a #span-modo-claro {
+  margin-left: 0; /* impedindo que o texto de modo claro/escuro, que possui a mesma classe dos elementos dos txt's dos links, fique com margem */
+  white-space: nowrap;
+}
+
+/* estilização para o logotipo */
+#logo-senai {
+  width: 100%; /* 100% -> logo ocupará toda a sidebar considerando os paddings aplicados às laterais */
+}
+
+/* centralização do logotipo na sidebar */
+ul li.item-menu a img{
+  opacity: 0;
+}
+nav.menu-lateral.expandir img{
+  opacity: 1;
+}
+/* logotipo finalizado */
+
+ul li.item-menu a .icon > i{
+  font-size: 30px;
+  margin-left: 10px;
+}
+.container-tema-dark {
+  /* background-color: blue; */
+  height: 70px; /* para evitar que o ícone do SENAI abaixo fique distante */
+}
+
+.menu-bar .bottom-content .toggle-switch {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.menu-lateral .toggle-switch #tema-dark {
+  /* margin-left: 5%; espaçamento dentro do menu lateral */
+  margin-left: 19%;
+  position: relative;
+  height: 33px;
+  width: 66px;
+  border-radius: 18px;
+  transition: var(--tran-05);
+  background-color: transparent;
+  border: 2px solid  rgb(36, 97, 159);
+}
+#tema-dark::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  background-color: rgb(88, 171, 255);
+  box-shadow: inset 0 0 4px 1px  rgb(17, 73, 129);
+  border: 1px solid black;
+  transition: all 0.4s;
+  z-index: 999; /* ficar à frente dos ícones de sol e lua */
+}
+
+#tema-dark i {
+  padding: 3px; /* espaçamento entre os ícones que estão dentro do botão */
+  font-size: 18px;
+}
+/* body.dark#tema-dark::before {
+  left: 20px;
+} */
+body.dark#tema-dark::before {
+    left: 20px;
+}
+
+
+/* tema dark */
+.bi-moon-fill {
+  color: dodgerblue;
+  filter: drop-shadow(1px 1px 1px black);
+}
+.bi-brightness-high-fill {
+  color: yellow;
+  color: rgb(255, 108, 10);
+  filter: drop-shadow(1px 1px 1px black);
+}
+.mode-text {
+    color: black;
+}
+#span-modo-claro {
+    margin-left: 42%;
+}
+@media only screen and (max-width: 720px) {
+    nav.iconnav {
+        width: 50px;
+        text-align: center;
+        justify-content: center;
+        padding-right: 52px; /* alinhar ícones ao meio */
+    }
+    nav.menu-lateral.expandir{
+        width: 100%;
+    }
+    nav .btn-expandir{
+        padding-left: 40%;
+    }
+    .header-top {
+        height: 10vh;
+    }
+
+    /* .input-search-js {
+        width: 70%;
+        margin-left: 5%;
+    } */
+
+    .content {
+        margin: 20px 5%;
+    }
+
+    /* https://www.freecodecamp.org/portuguese/news/como-tornar-seu-html-responsivo-adicionando-uma-unica-linha-de-css/ */
+}
+
+
+/* __________________________________________________________________________________ */
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    background-color: transparent;
+}
+
+#fade, #fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+  .imgBook {
+    width: 130px;
+    height: 206px;
+  }
+
+  #modal, #modale {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+  }
+  
+  #fade, #fader, #modale, #modal {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .modal-header, .modalheader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .modal-body, .modalbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  
+  #modal.hide, #modale.hide, #fader.hide, #fade.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #modal.hide, #modale.hide {
+    top: 0;
+  }
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+input,
+select,
+textarea {
+  color: #5a5a5a;
+  font: inherit;
+  margin: 0;
+}
+
+input {
+  line-height: normal;
+  outline: none;
+}
+
+textarea {
+  overflow: auto;
+}
+
+h1 {
+  color: #474544;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+.icon_wrapper {
+  margin: 50px auto 0;
+  width: 100%;
+}
+
+.icon {
+  display: block;
+  fill: #474544;
+  height: 50px;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.email {
+  float: right;
+  width: 45%;
+}
+
+input[type="text"],
+[type="email"],
+select,
+textarea {
+  background: none;
+  border: none;
+  border-bottom: solid 2px #474544;
+  color: #474544;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0em 0 1.875em 0;
+  padding: 0 0 0.875em 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+input[type="text"]:focus,
+[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  padding: 0 0 0.875em 0;
+}
+
+
+select {
+  background: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png")
+    no-repeat right;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+#pngadjust {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+textarea {
+  line-height: 150%;
+  height: 15%;
+  resize: none; /* evitar que o usuário estique a caixa da textarea (por padrão vem em both) */
+  width: 100%;
+  border: 1px solid black;
+  padding: 12px;
+}
+textarea::placeholder {
+    padding: 12px;
+}
+::-webkit-input-placeholder {
+  color: #474544;
+}
+
+:-moz-placeholder {
+  color: #474544;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #474544;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #474544;
+}
+
+.form_button {
+  background: none;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.form_button:hover {
+  background: #474544;
+  color: #f2f3eb;
+}
+
+.container_buttons, .containerbuttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* telas de ipad */
+@media screen and (min-width: 728px) and (max-width: 1024px) {
+    .header-top {
+      width: 100vw;
+      height: 50px;
+      margin-right: 20px;
+      padding: 10px;
+
+    }
+
+   /* .header-top .input-search-js {
+      width: 100%; 
+      height: 30px;
+      margin: 10px 0;
+      margin-right: 0; 
+    } */
+  
+    .h1-emprestimo-livros {
+      font-size: 1rem;
+    }
+    #icon-logout {
+      font-size: 1.5rem; /* Reduzir o tamanho do ícone */
+      margin-left: 6px; /* Reduzir a margem à esquerda */
+    }
+  }
+
+/* Dentro da regra de mídia para telas menores de 728px (tablets) */
+@media screen and (max-width: 728px) {
+#fade, #fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+
+  #modal, #modale {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+  }
+  
+  #fade, #fader, #modale, #modal {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .modal-header, .modalheader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .modal-body, .modalbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  
+  #modal.hide, #modale.hide, #fader.hide, #fade.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #modal.hide, #modale.hide {
+    top: 0;
+  }
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+input,
+select,
+textarea {
+  color: #5a5a5a;
+  font: inherit;
+  margin: 0;
+}
+
+input {
+  line-height: normal;
+  outline: none;
+}
+
+textarea {
+  overflow: auto;
+}
+
+h1 {
+  color: #474544;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+.icon_wrapper {
+  margin: 50px auto 0;
+  width: 100%;
+}
+
+.icon {
+  display: block;
+  fill: #474544;
+  height: 50px;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.email {
+  float: right;
+  width: 45%;
+}
+
+input[type="text"],
+[type="email"],
+select,
+textarea {
+  background: none;
+  border: none;
+  border-bottom: solid 2px #474544;
+  color: #474544;
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0em 0 1.875em 0;
+  padding: 0 0 0.875em 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+input[type="text"]:focus,
+[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  padding: 0 0 0.875em 0;
+}
+
+select {
+  background: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png")
+    no-repeat right;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+#pngadjust {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+textarea {
+  line-height: 150%;
+  height: 15%;
+  resize: none; /* evitar que o usuário estique a caixa da textarea (por padrão vem em both) */
+  width: 100%;
+  border: 1px solid black;
+  padding: 12px;
+}
+textarea::placeholder {
+    padding: 12px;
+}
+::-webkit-input-placeholder {
+  color: #474544;
+}
+
+:-moz-placeholder {
+  color: #474544;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #474544;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #474544;
+}
+
+.form_button {
+  background: none;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica", Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.form_button:hover {
+  background: #474544;
+  color: #f2f3eb;
+}
+
+.container_buttons, .containerbuttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+}
+@media screen and (max-width: 768px) {
+
+  input[type="text"],
+  [type="email"],
+  select,
+  textarea {
+    font-size: 0.875em;
+  }
+
+  .form_button {
+    width: 200px;
+    height: 70px;
+
+  }
+}
+
+@media screen and (max-height: 900px) {
+
+  .header-top {
+    margin-right: 500px;
+  }
+
+  input[type="text"],
+  [type="email"],
+  select,
+  textarea {
+    font-size: 0.875em;
+  }
+
+}
+
+
+@media screen and (max-width: 480px) {
+
+  h1 {
+    font-size: 26px;
+  }
+
+
+  #form_button {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+
+
+  input[type="text"],
+  [type="email"],
+  select,
+  textarea {
+    font-size: 0.875em;
+  }
+}
+
+
+

@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Red Hat Display';
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color-dark);
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*Bloco pai*/
+.login_container {
+    position: relative;
+    height: 600px;
+    width: 768px;
+    border-radius: 12px;
+    box-shadow: 0 14px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: 1s;
+}
+
+#form-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.form {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 55px 0;
+}
+
+.form-login {
+    background-color: white;
+    transition: 1s;
+}
+
+.form-registro {
+    background-color: white;
+    transition: 1s;
+}
+
+.form-login h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--text-color-dark);
+}
+
+.form-registro h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--text-color-dark);
+}
+
+.form-login p {
+    font-size: 1rem;
+}
+
+.form-registro p {
+    font-size: 1rem;
+}
+
+/*paleta de cores*/
+:root {
+    --primary-color: rgba(0, 0, 255, 0.669);
+    --secondary-color: white;
+    --text-color-dark: black;
+    --text-color-light: white;
+    --icon-color: #f3f3f3;
+}
+
+#icons-social {
+    display: flex;
+    gap: 24px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    transition: .5s;
+    background-color: var(--icon-color);
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-15%);
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+
+#login-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-input {
+    width: 300px;
+    height: 40px;
+    padding: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+/* Estilo para o input com classe strongPassword */
+#container-Password, #container-strongPassword {
+    position: relative;
+  }
+  
+  /* Estilo para o ícone SVG dentro do campo de senha */
+.icon-Password, .icon-strongPassword {
+    position: absolute;
+    right: 10px; /* Ajuste conforme necessário */
+    top: 30%;
+    cursor: pointer;
+  }
+  
+/* mostrar ícone de senha invisível no primeiro instante */
+#invisible-password {
+    display: block; 
+}
+#visible-password {
+    display: none; /* esconder ícone de senha visível no primeiro instante */
+}
+
+/* ícone de visibilidade fica visível com a classe .hide ativada */
+#visible-password.hide {
+    display: block; 
+}
+
+/* ícone de invisibilidade fica invisível com a classe .hide ativada */
+#invisible-password.hide {
+    display: none;
+}
+
+/* gerador de senhas fortes */
+
+/* ícone de copiar senha oculto no primeiro instante */
+#icon-copiarSenha {
+    display: none; /* manter o display desativado em primeiro instante */
+    margin-left: 8px; /* margem criada do ícone de copiar em relação ao ícone de gerar senha (+) */
+}
+/* container dos ícones  */
+.icon-strongPassword {
+    display: inline-flex; /* manter os ícones de gerar e copiar senha na mesma linha */
+}
+
+.login-button {
+    border: 1px solid var(--primary-color);
+    width: 140px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    transition: .5s;
+
+}
+
+.errors {
+    color: red;
+    font-weight: 900;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+ }
+
+.login-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-15%);
+}
+
+.register-button {
+    border: 1px solid var(--primary-color);
+    width: 140px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    transition: .5s;
+    outline: none;
+}
+
+.register-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-15%);
+}
+
+/*camada de sobreposição*/
+#camada {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transform: translateX(100%);
+    text-align: center;
+    transition: 1s;
+}
+
+/*transição do overlay*/
+.login_container.move #camada{
+    transform: translateX(0%);
+}
+
+/*estilização bloco transitivo*/
+#overlay {
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 100px 42px 100px 42px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgb(56, 56, 255), rgb(76, 237, 255));
+    color: var(--text-color-light);
+    transition: 1s;
+}
+
+.login_container.move #overlay:nth-child(2) {
+    z-index: -1;
+    opacity: 0;
+}
+
+/*h2 do bloco de transição*/
+#overlay h2 {
+    font-weight: 400;
+    font-size: 2.4rem;
+}
+
+.animate-button {
+    border: 1px solid var(--text-color-light);
+    width: 140px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-color-light);
+    transition: .5s;
+}
+
+.animate-button:hover {
+    background-color: rgb(35, 172, 252);
+    color: white;
+    transform: translateY(-15%);
+}
+
+/*responsividade mobile*/
+.mobile-texts {
+    display: none;
+}
+
+
+@media (max-width:768px) {
+    #camada {
+        display: none;
+    }
+
+    .form {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .login_container {
+        width: 100vw;
+        height: 100vh;
+        box-shadow: none;
+    }
+
+    .form-registro {
+        position: absolute;
+        transform: translateX(100%);
+    }
+
+    .login_container.move .form-login{
+        transform: translateX(100%);
+    }
+
+    .login_container.move .form-registro{
+        transform: translateX(0%);
+    }
+    .mobile-texts {
+        display: block;
+    }
+    .mobile-texts a {
+        font-weight: 800;
+    }
+}

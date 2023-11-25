@@ -190,8 +190,8 @@ class RegistroLivrosForm(forms.Form):
 
 
     CHOICES=[
-        ('Disponível', 'Disponível'),
-        ('Indisponível', 'Indisponível')
+        (True, 'Disponível'),
+        (False, 'Indisponível')
             ]
     disponivel=forms.ChoiceField(
         required=True,
@@ -227,7 +227,7 @@ class RegistroLivrosForm(forms.Form):
         ('Usado', 'Usado'),
             ]
     estado=forms.ChoiceField(
-        required=False,
+        required=True,
         widget=forms.Select(
             attrs={
                 "id": "subject_input"
@@ -253,27 +253,6 @@ class RegistroLivrosForm(forms.Form):
         if name == '':
             raise ValidationError("O campo Nome não pode estar vazio!")
         
-    def clean_autor(self):
-        autor = self.cleaned_data.get('autor')
-        
-        if autor == '':
-            raise ValidationError("O campo Autor não pode estar vazio!")
-        
-    def clean_editora(self):
-        editora = self.cleaned_data.get('editora')
-        
-        if editora == '':
-            raise ValidationError("O campo Editora não pode estar vazio!")
-        
-    def clean_estoque(self):
-        estoque = self.cleaned_data.get('estoque')
-        
-        if estoque == '':
-            raise ValidationError("O campo estoque não pode estar vazio!")
-        if int(estoque) < 0:
-            raise ValidationError("O estoque não pode ser um número negativo!")
-        if len(estoque) > 6:
-            raise ValidationError("O estoque não pode ter mais de 6 digítos!")
 
 class EmprestimoLivrosForm(forms.Form):
     name=forms.CharField(

@@ -3,10 +3,10 @@ from django.db import models
 class BookRegister(models.Model):
     id = models.AutoField(primary_key=True)
     nameBook = models.CharField(max_length=200)
-    authorBook = models.CharField(max_length=100)
-    descrição = models.CharField(max_length=255)
+    authorBook = models.CharField(max_length=100, blank=True)
+    descrição = models.CharField(max_length=255, blank=True)
     estado = models.CharField(max_length=10)
-    editoraBook = models.CharField(max_length=50)
+    editoraBook = models.CharField(max_length=50, blank=True)
     image = models.ImageField(blank=True, null=True)
     categoria = models.CharField(max_length=50)
     disponivel = models.BooleanField(default=True)

@@ -59,15 +59,7 @@ background-color: var(--odd-row);
 .table-widget tbody tr:hover {
 background-color: #f6f9ff;
 }
-input {
-border-radius: 4px;
-padding: 4px;
-}
-button {
-padding: 6px;
-border-radius: 6px;
-width: 120px;
-}
+
 h1 {
 text-align: center;
 text-transform: uppercase;

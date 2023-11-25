@@ -37,7 +37,7 @@
     margin-left: 20px;
     display: flex;
     border: none;
-    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .15);
     flex-direction: column;
     justify-content: center;
     align-items: center;

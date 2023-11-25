@@ -134,7 +134,8 @@ def registerbook(request):
             editora = formRegistroLivros['editora'].value()
             estado = formRegistroLivros['estado'].value()
             descricao = formRegistroLivros['descricao'].value()
-            estoque = formRegistroLivros['estoque'].value()
+            categoria = formRegistroLivros['categoria'].value()
+            disponivel = formRegistroLivros['disponivel'].value()
     
             new_book = BookRegister(
                 nameBook=nome,
@@ -143,7 +144,8 @@ def registerbook(request):
                 editoraBook=editora,
                 descrição=descricao,
                 image = return_image(nome),
-                estoqueBook=estoque
+                categoria = categoria,
+                disponivel = disponivel
             )
             new_book.save()
             return redirect('home')
@@ -185,8 +187,11 @@ def registerBorrowing(request):
     
 @login_required(login_url='login_auth')
 def livroview(request, book_id):
+    formRegistroLivros = RegistroLivrosForm()
+    formEmprestimoLivros = EmprestimoLivrosForm()
+    books = BookRegister.objects.all()
     book = BookRegister.objects.get(pk=book_id)
-    return render(request, 'static/dados_livro.html', {'book': book})
+    return render(request, 'static/dados_livro.html', {'book': book, 'books': books, 'formRegistroLivros': formRegistroLivros, 'formEmprestimoLivros': formEmprestimoLivros})
     
 @login_required(login_url='login_auth')
 def deletebook(request, book_id):
@@ -228,9 +233,12 @@ def updatebook(request, book_id):
     
 @login_required(login_url='login_auth')
 def historico(request):
-    if request.user.is_authenticated:
+    formRegistroLivros = RegistroLivrosForm()
+    formEmprestimoLivros = EmprestimoLivrosForm()
+    if request.method == 'GET':
+        books = BookRegister.objects.all()
         emprestimos = BorrowingData.objects.all()
-        return render(request, 'static/historico.html', {'emprestimos': emprestimos})
+        return render(request, 'static/historico.html', {'books': books, 'emprestimos': emprestimos, 'formRegistroLivros': formRegistroLivros, 'formEmprestimoLivros': formEmprestimoLivros})
     else:
         return HttpResponse('Você precisa logar!')
 

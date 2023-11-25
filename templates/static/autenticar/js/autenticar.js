@@ -101,6 +101,7 @@ function copiar () {
        const form = document.getElementsByTagName('form')
        const overlay1 = document.querySelector('#overlay1')
        const overlay2 = document.querySelector('#overlay2')
+       const form_input = document.querySelector('#form-input')
 
        // se body conter a classe '.dark'
        if (body.classList.contains('dark')) {
@@ -113,6 +114,7 @@ function copiar () {
            form.classList.remove('dark')
            overlay1.classList.remove('dark')
            overlay2.classList.remove('dark')
+           form_input.classList.remove('dark')
        } else {
            // Modo escuro
            body.classList.add('dark');
@@ -122,6 +124,7 @@ function copiar () {
            form.classList.add('dark')
            overlay1.classList.add('dark')
            overlay2.classList.add('dark')
+           form_input.classList.add('dark')
 
            // icons.forEach((icon) => {
            //    icon.classList.add('dark');

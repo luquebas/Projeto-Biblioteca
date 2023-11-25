@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
     <title>SideBar</title>
-    <link rel="stylesheet" href="{% static '/autenticar/css/historico.css' %}">
+    <link rel="stylesheet" href="{% static 'autenticar/css/historico.css' %}">
     {% endblock %}
     <script src="autenticar/js/menu.js" defer></script>
 </head>
@@ -16,11 +16,7 @@
   {%block content%}
     <!-- criar container para texto (ter margem à esquerda) -->
     <div class="header-top">
-      <!-- <h1 class="h1-senai-tocantins">SENAI - TOCANTINS</h1> -->
       <h1 class="h1-emprestimo-livros">Histórico</h1>
-        <div class="input-container">
-            <!--<input type="text" class="input-search-js" name="input-search" id="input-search" placeholder="Buscar livro"> -->
-          </div>
     </div>
     <div id="container">
         <div class="table-widget">

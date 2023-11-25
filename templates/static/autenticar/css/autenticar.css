@@ -279,6 +279,9 @@ main {
     transform: translateY(-15%);
 }
 
+.mobile-texts {
+    display: none;
+}
 
 /*responsividade mobile*/
 
@@ -401,6 +404,11 @@ svg {
  }
 .dark .form-input, .dark .form-input::placeholder {
     color: #fff; /* mudar a cor do input e do placeholder do gerador de senha forte, para tornar a visualização mais visível */
+} 
+
+.dark .form-input {
+    background-color: #333;
+    border-bottom: 1px solid #fff;
 } 
 
  .dark .login-button, .dark .register-button, .dark .animate-button {

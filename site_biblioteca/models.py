@@ -13,12 +13,15 @@ class BookRegister(models.Model):
 
     def __str__(self):
         return self.nameBook
+    
+    
 
 
 class BorrowingData(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     book = models.CharField(max_length=255)
     pdf = models.FileField(upload_to='borrowing_pdfs', default='emprestimos.pdf')
     email = models.EmailField(max_length=299)
+

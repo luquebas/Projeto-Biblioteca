@@ -6,9 +6,10 @@ import random
 import pandas as pd
 from xhtml2pdf import pisa
 from io import BytesIO
+import datetime
 
 class GeradorPdf(FPDF):
-    
+
     def header(self):
         #logo
         self.image('templates/static/autenticar/img/senai-logo.png', 10, 8, 40)
@@ -49,12 +50,12 @@ class GeradorPdf(FPDF):
         
         self.cell(33, 60, f'Usuário: {name}', border=False, align='R')
 
-        self.cell(69, 80, f'ID:id - {book}', border=False, align='R')
+        self.cell(69, 80, f'Livro: {book}', border=False, align='R')
 
         
-        self.cell(-81.5, 100, f'Data de empréstimo: data', border=False, align='R')
+        self.cell(-81.5, 100, f'Data de empréstimo: {datetime.date.today().strftime("%d/%m/%Y")}', border=False, align='R')
 
-        self.cell(-3, 120, f'Data de devolução: 00/00/0000', border=False, align='R')
+        self.cell(-3, 120, f'Data de devolução: {(datetime.date.today() + datetime.timedelta(days=15)).strftime("%d/%m/%Y")}', border=False, align='R')
 
         self.set_text_color(0,0,0)
 

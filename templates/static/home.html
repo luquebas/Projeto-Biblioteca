@@ -38,7 +38,12 @@
           <div class="element-content-right">
             <span id='text-name'>{{book.nameBook}}</span>
             <button disabled id="btn-disponivel">
+              {% if book.disponivel %}
               <span id='text-name'>Disponível</span>
+              {% endif %}
+              {% if not book.disponivel %}
+              <span id='text-name'>Indisponível</span>
+              {% endif %}
             </button>
           </div>
         </div>

@@ -3,11 +3,10 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from .models import BookRegister
-from .models import BorrowingData
+from .models import BookRegister, BorrowingData
 from django.contrib.auth import logout
 from .forms import LoginForm, CadastroForm, EsqueciSenhaForm, NovaSenhaForm, RegistroLivrosForm, EmprestimoLivrosForm
-from .utils import return_image, gerar_codigo, relatorio_estoque, GeradorPdf
+from .utils import return_image, gerar_codigo, GeradorPdf
 from django.core.mail import EmailMessage
 from django.contrib import messages
 
@@ -171,13 +170,13 @@ def registerBorrowing(request):
             name=nome,
             email=email,
             book=book,
-            pdf= pdf.output(f"Comprovante-{nome}.pdf")
+            pdf= pdf.output(dest='D')
             )
 
             new_borrowing.save()
 
             emailstructure = EmailMessage('Comprovante do Empréstimo', 'Envio do Comprovante PDF do seu empréstimo na Biblioteca Senai - Araguaína (TO)', to=[email])
-            emailstructure.attach(f'Comprovante_emprestimo.pdf', pdf.output("relatorio.pdf", dest='S'), 'application/pdf')
+            emailstructure.attach(f'Comprovante_emprestimo.pdf', pdf.output(dest='S'), 'application/pdf')
             emailstructure.send()
             return redirect('home')
         else:

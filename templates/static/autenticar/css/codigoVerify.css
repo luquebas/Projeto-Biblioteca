@@ -2,7 +2,6 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +21,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #fff;
+        background: linear-gradient(rgba(147, 198, 248, 0.909), rgba(19, 67, 114, 0.909));
         padding: 20px;
     }
     input { /* definição dos inputs que receberão o código */
@@ -52,8 +51,9 @@ main img { /* logotipo do senai */
 
 main {
     position: absolute;
-    background-color: #262A33;
+    border-radius: 8px;
     width: 80%; /* criar uma margem independente do tamanho da tela */
+    background-color: #275893;
     max-width: 460px;
     display: flex;
     padding: 24px;
@@ -70,6 +70,9 @@ main {
     color: dodgerblue;
     justify-content:space-between; /* manter a logo e o nome separados */
     align-items: center; /* centralizar elementos no eixo-y */
+}
+#senai-info h2 {
+    font-weight: 400;
 }
 #section-btn {
     width: 100%;
@@ -91,9 +94,11 @@ span {
     border: 2px inset #fff; /* inset: tipo de borda 3d */ 
     transition: all .4s; /* aplicar transição aos buttons ** importante para a estilização de mudança de background no :hover (ida e volta) */
     cursor: pointer;
+    border-radius: 6px;
 }
 .btn-form:hover {
-    background-color: #354d87;
+    background-color: rgba(25, 66, 117, 0.794);
+    text-shadow: -1px 1px 0 black;
 }
 #btn-voltar {
     width: 100%; /* ocupar toda main - padding */

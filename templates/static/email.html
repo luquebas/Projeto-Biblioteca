@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validação</title>
     <link rel="stylesheet" href="{%static '/autenticar/css/email.css' %}">
+    <link rel="stylesheet" href="autenticar/css/email.css">
 </head>
 <body>
     <!-- <img src="background-senai.png" id="background" alt=""> -->
-    <form action="{% url 'esqueci_senha' %}" method="POST"> {% csrf_token %}
+    <form action="{% url 'esqueci_senha' %}" method="POST"> 
+        {% csrf_token %}
         <div id="container">
             <main>
                 <section id="senai-info">

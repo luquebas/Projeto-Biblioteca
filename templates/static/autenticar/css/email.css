@@ -19,7 +19,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #fff;
+        background: linear-gradient(rgba(147, 198, 248, 0.909), rgba(19, 67, 114, 0.909));
     }
 main img {
     width: 100%;
@@ -30,7 +30,8 @@ main img {
 
 main {
     position: absolute;
-    background-color: #262A33;
+    background-color: #275893;
+    border-radius: 8px;
     width: 80%; /* criar uma margem independente do tamanho da tela */
     max-width: 360px;
     display: flex;
@@ -49,6 +50,9 @@ main {
 #senai-email {
     font-size: 0.8rem;
 }
+#senai-email h2 {
+    font-weight: 400;
+}
 #main-input {
     width: 98%;
     min-height: 40px; /* altura mínima do input */
@@ -61,6 +65,7 @@ span {
 .btn-form {
     margin: 24px 0 0 0;
     padding: 8px;
+    border-radius: 6px;
     color: #fff;
     background-color: transparent; /* manter a cor dos buttons igual à do background de fundo deles */
     border: 2px inset #fff; /* inset: tipo de borda 3d */ 
@@ -68,7 +73,8 @@ span {
     cursor: pointer;
 }
 .btn-form:hover {
-    background-color: #354d87;
+    background-color: rgba(25, 66, 117, 0.794);
+    text-shadow: -1px 1px 0 black;
 }
 
 .errors {

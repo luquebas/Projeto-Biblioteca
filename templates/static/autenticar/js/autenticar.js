@@ -3,6 +3,11 @@ const btnCadastrar = document.getElementById('btnCadastrar')
 const btnEntrar = document.getElementById('btnEntrar')
 const aLogin = document.getElementById('registroMobileLogin')
 const aCad = document.getElementById('registroMobileCad')
+const loginMobile = document.getElementById('registroMobileLogin')
+
+const overlay1 = document.querySelector('#overlay1')
+const overlay2 = document.querySelector('#overlay2')
+const containerBtnDark = document.querySelector('.item-menu')
 
 /*Recebe outra classe*/
 btnCadastrar.addEventListener('click', () => {
@@ -20,6 +25,30 @@ aCad.addEventListener('click', () => {
 aLogin.addEventListener('click', () => {
     loginContainer.className = 'login_container'
 })
+
+
+// Adiciona um ouvinte de evento ao botão
+btnEntrar.addEventListener('click', function() {
+   // Se o botão foi clicado, este código será executado
+   containerBtnDark.style.margin = '0' // voltando o botão à posição original
+});
+btnCadastrar.addEventListener('click', function(){
+    containerBtnDark.style.margin = '0 -760px 0 0' // modificar o posicionamento do botão, colocando-o na extremidade inferior da overlay
+})
+
+// mobile
+// Adiciona um ouvinte de evento ao botão
+loginMobile.addEventListener('click', function() {
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        // Se a condição for verdadeira, aplica os estilos
+        containerBtnDark.style.margin = '0'; }
+ });
+aCad.addEventListener('click', function(){
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        // Se a condição for verdadeira, aplica os estilos
+        containerBtnDark.style.margin = '0 -560px 0 0';
+    }
+ })
 
 // const password = document.querySelector('.strongPassword')
 // var invisiblePassword = document.querySelector('#invisible-password')
@@ -89,18 +118,19 @@ function copiar () {
     senhaCopiar.addEventListener('click', copiar)
 
 
-    const btnJs = document.getElementById("tema-dark"); // Pegando o botão do HTML
-    btnJs.addEventListener('click', alternarTema); // Adicionando função ao botão
-    
+    const btnJs1 = document.getElementById("tema-dark");
+    const btnJs2 = document.getElementById("tema-dark2");
+
+    btnJs1.addEventListener('click', alternarTema);
+    btnJs2.addEventListener('click', alternarTema);
+
+
     function alternarTema() {
        // guardando elementos em variáveis
        const body = document.body;
        const formLogin = document.querySelector('.form-login')
-       const overlay = document.querySelector('.overlay')
        const titles = document.querySelector('.titles')
        const form = document.getElementsByTagName('form')
-       const overlay1 = document.querySelector('#overlay1')
-       const overlay2 = document.querySelector('#overlay2')
        const form_input = document.querySelector('#form-input')
 
        // se body conter a classe '.dark'
@@ -108,7 +138,6 @@ function copiar () {
            // Modo claro
            // remover 
            body.classList.remove('dark');
-           overlay.classList.remove('dark')
            formLogin.classList.remove('dark')
            titles.classList.remove('dark')
            form.classList.remove('dark')

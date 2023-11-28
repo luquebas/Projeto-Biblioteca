@@ -10,7 +10,7 @@
 <body>
     {% block content%}
     <center>
-    <form action="{% url 'updatebook' book.id %}" method="POST"> {% csrf_token %}
+    <form action="{% url 'updatebook' book.id %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
         {% for field in formRegistroLivros.visible_fields %}
             <center>{{field}}</center>
         {% endfor %}

@@ -86,9 +86,14 @@
       </div>
       <div class="modal-body">
         <form method="POST" action="{% url 'register' %}" id="form-register">{% csrf_token %}
-          {% for field in formRegistroLivros.visible_fields%}
-              {{field}}
-          {%endfor%}
+            {{formRegistroLivros.nameBook}}
+            {{formRegistroLivros.authorBook}}
+            {{formRegistroLivros.editoraBook}}
+            {{formRegistroLivros.categoria}}
+            {{formRegistroLivros.estado}}
+            {{formRegistroLivros.disponivel}}
+            {{formRegistroLivros.descrição}}
+
         <div class="container_buttons">
           <button type="submit" value="Cadastrar livro" class="form_button">Cadastrar</button>
           <button type="button" id="close-modal" class="form_button">Fechar</button>

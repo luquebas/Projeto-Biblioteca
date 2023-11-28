@@ -163,8 +163,13 @@ class NovaSenhaForm(forms.Form):
         return self.cleaned_data
 
 
-class RegistroLivrosForm(forms.Form):
-    name=forms.CharField(
+class RegistroLivrosForm(forms.ModelForm):
+
+    class Meta:
+        model = BookRegister
+        fields = '__all__'
+
+    nameBook=forms.CharField(
         required=True,
         max_length=200,
         widget=forms.TextInput(
@@ -202,7 +207,7 @@ class RegistroLivrosForm(forms.Form):
         ), choices=CHOICES
     )
 
-    autor=forms.CharField(
+    authorBook=forms.CharField(
         required=False,
         max_length=100,
         widget=forms.TextInput(
@@ -211,7 +216,7 @@ class RegistroLivrosForm(forms.Form):
             }
         )    
     )
-    editora=forms.CharField(
+    editoraBook=forms.CharField(
         required=False,
         max_length=50,
         widget=forms.TextInput(
@@ -235,7 +240,7 @@ class RegistroLivrosForm(forms.Form):
         ), choices=CHOICES
     )
 
-    descricao=forms.CharField(
+    descrição=forms.CharField(
         required=False,
         max_length=255,
         widget=forms.Textarea(

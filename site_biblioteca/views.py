@@ -128,11 +128,11 @@ def registerbook(request):
     if request.method == 'POST':
         formRegistroLivros = RegistroLivrosForm(request.POST)
         if formRegistroLivros.is_valid():
-            nome = formRegistroLivros['name'].value()
-            autor = formRegistroLivros['autor'].value()
-            editora = formRegistroLivros['editora'].value()
+            nome = formRegistroLivros['nameBook'].value()
+            autor = formRegistroLivros['authorBook'].value()
+            editora = formRegistroLivros['editoraBook'].value()
             estado = formRegistroLivros['estado'].value()
-            descricao = formRegistroLivros['descricao'].value()
+            descricao = formRegistroLivros['descrição'].value()
             categoria = formRegistroLivros['categoria'].value()
             disponivel = formRegistroLivros['disponivel'].value()
     
@@ -204,28 +204,14 @@ def deletebook(request, book_id):
 @login_required(login_url='login_auth')
 def updatebook(request, book_id):
     book = BookRegister.objects.get(pk=book_id)
-    formRegistroLivros = RegistroLivrosForm(initial={
-        'nome': book.nameBook,
-        'autor': book.authorBook,
-        'editora': book.editoraBook,
-        'estado': book.estado,
-        'descricao': book.descrição,
-        'estoque': book.estoqueBook
-    })
+    formRegistroLivros = RegistroLivrosForm(instance=book)
     if request.method == 'GET':
         return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros,'book': book})
 
     if request.method == "POST":
-        formRegistroLivros = RegistroLivrosForm(request.POST)
+        formRegistroLivros = RegistroLivrosForm(request.POST, request.FILES, instance=book)
         if formRegistroLivros.is_valid():
-            BookRegister.objects.filter(pk=book_id).update(
-                nameBook=formRegistroLivros.cleaned_data['name'],
-                authorBook=formRegistroLivros.cleaned_data['autor'],
-                editoraBook=formRegistroLivros.cleaned_data['editora'],
-                estado=formRegistroLivros.cleaned_data['estado'],
-                descrição=formRegistroLivros.cleaned_data['descricao'],
-                estoqueBook=formRegistroLivros.cleaned_data['estoque']
-            )
+            formRegistroLivros.save()
             return redirect('home')
         else:
             return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros,'book': book})

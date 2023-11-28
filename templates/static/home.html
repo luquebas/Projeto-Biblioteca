@@ -32,7 +32,11 @@
         <div class="element-content">
           <a href="{% url 'livroview' book.id %}">
             <div id="imgLivro">
+              {% if book.image %}
               <img src="{{book.image}}" class="imgBook">
+              {% else %}
+              <img src="{{book.image.url}}" class="imgBook">
+              {% endif %}
             </div>
           </a>
           <div class="element-content-right">

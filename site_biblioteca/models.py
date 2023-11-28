@@ -7,7 +7,7 @@ class BookRegister(models.Model):
     descrição = models.CharField(max_length=255, blank=True)
     estado = models.CharField(max_length=10)
     editoraBook = models.CharField(max_length=50, blank=True)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='files', blank=True, null=True)
     categoria = models.CharField(max_length=50)
     disponivel = models.BooleanField(default=True)
 

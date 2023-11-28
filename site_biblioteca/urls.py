@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('init/', views.init, name="inicio"),
@@ -16,4 +18,4 @@ urlpatterns = [
     path('registerBorrowing/', views.registerBorrowing, name='registerBorrowing'),
     path('historico/', views.historico, name='historico'),
     path('logout/', views.logoutp, name='logout')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -18,4 +18,4 @@ urlpatterns = [
     path('registerBorrowing/', views.registerBorrowing, name='registerBorrowing'),
     path('historico/', views.historico, name='historico'),
     path('logout/', views.logoutp, name='logout')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 

@@ -5,6 +5,7 @@ from fpdf import FPDF
 import random
 import pandas as pd
 from xhtml2pdf import pisa
+import plotly.express as px
 from io import BytesIO
 import datetime
 
@@ -48,14 +49,14 @@ class GeradorPdf(FPDF):
 
         self.cell(10, 40, 'Recibo de empréstimo',  border=False, align='R')
         
-        self.cell(33, 60, f'Usuário: {name}', border=False, align='R')
+        self.cell(15, 60, f'Usuário: {name}', border=False, align='R')
 
-        self.cell(69, 80, f'Livro: {book}', border=False, align='R')
+        self.cell(-22, 80, f'Livro: {book}', border=False, align='R')
 
         
-        self.cell(-81.5, 100, f'Data de empréstimo: {datetime.date.today().strftime("%d/%m/%Y")}', border=False, align='R')
+        self.cell(28, 100, f'Data de empréstimo: {datetime.date.today().strftime("%d/%m/%Y")}', border=False, align='R')
 
-        self.cell(-3, 120, f'Data de devolução: {(datetime.date.today() + datetime.timedelta(days=15)).strftime("%d/%m/%Y")}', border=False, align='R')
+        self.cell(-4, 120, f'Data de devolução: {(datetime.date.today() + datetime.timedelta(days=15)).strftime("%d/%m/%Y")}', border=False, align='R')
 
         self.set_text_color(0,0,0)
 
@@ -99,10 +100,10 @@ def gerar_codigo():
 
 
 def relatorio_estoque():
-    query = BookRegister.objects.values('nameBook', 'estoqueBook')
+    query = BookRegister.objects.values('nameBook')
 
     dataframe = pd.DataFrame.from_records(query)
-    dataframe.loc['Total'] = pd.Series(dataframe['estoqueBook'].sum(), index=['estoqueBook'])
+    dataframe.loc['Total'] = pd.Series(dataframe['nameBook'].sum(), index=['NameBook'])
     
     html = dataframe.to_html()
     html = f"""
@@ -137,11 +138,26 @@ def relatorio_estoque():
 
     pisa.CreatePDF(html, dest=pdf_data)
 
-    with open('relatorio.pdf', 'wb') as pdf_file:
-        pdf_file.write(pdf_data.getvalue())
+    return pdf_data
 
-    pdf_file = open('relatorio.pdf', 'rb')
-    pdf_bytes = pdf_file.read()
-    pdf_file.close()
+def grafico_categorias():
+
+    livros = BookRegister.objects.filter(categoria="livro")
+    periodicos = BookRegister.objects.filter(categoria="Periódico")
+    folheto_tecnico = BookRegister.objects.filter(categoria="Folheto Técnico")
+
+    # Definindo as variáveis
+    random_x =[len(livros), len(periodicos), len(folheto_tecnico)]
+    names = ['Livro', 'Periódico', 'Folheto Técnico']
+
+    #Personalizando
+    fig = px.pie(values=random_x, color_discrete_sequence=px.colors.sequential.Turbo, names=names, title='Quantidade de Livro por Gênero')
+
+    #Convertendo para Imagem
+    image = fig.write_image('fig.jpeg')
+
+    #Gerando PDF
+    pdf_bytes = BytesIO()
+    pisa.CreatePDF(image, dest=pdf_bytes)
 
     return pdf_bytes

@@ -18,5 +18,7 @@ urlpatterns = [
     path('registerBorrowing/', views.registerBorrowing, name='registerBorrowing'),
     path('historico/', views.historico, name='historico'),
     path('download_comprovante/<int:emprestimo_id>/', views.download_comprovante, name='download_comprovante'),
+    path('download_acervo', views.download_acervo, name='download_acervo'),
+    path('download_categorias', views.download_categorias, name='download_categorias'),
     path('logout/', views.logoutp, name='logout')
 ] 

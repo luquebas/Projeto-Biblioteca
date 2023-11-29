@@ -6,9 +6,10 @@ from django.contrib.auth.decorators import login_required
 from .models import BookRegister, BorrowingData
 from django.contrib.auth import logout
 from .forms import LoginForm, CadastroForm, EsqueciSenhaForm, NovaSenhaForm, RegistroLivrosForm, EmprestimoLivrosForm
-from .utils import return_image, gerar_codigo, GeradorPdf
+from .utils import return_image, gerar_codigo, GeradorPdf, relatorio_estoque, grafico_categorias
 from django.core.mail import EmailMessage
 from django.contrib import messages
+import io
 
 def init(request):
     if request.method == 'GET':
@@ -228,19 +229,41 @@ def historico(request):
 def download_comprovante(request, emprestimo_id):
     emprestimo = BorrowingData.objects.get(pk=emprestimo_id)
 
-    pdf_comprovante = GeradorPdf('P','mm','A4')
-    pdf_comprovante.chapter_body(emprestimo.name, emprestimo.book)
-    pdf_comprovante.output(dest='S')
+    pdf_bytes = io.BytesIO()
 
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename=Comprovante-{emprestimo.name}.pdf'
+    
+    pdf_comprovante = GeradorPdf('P','mm','A4')
+    pdf_comprovante.chapter_body(emprestimo.name, emprestimo.book)
+    pdf_comprovante.output(pdf_bytes, dest='S')
+
+    response.write(pdf_bytes.getvalue())
+
 
     return response
 
-    
+@login_required(login_url='login_auth')
+def download_acervo(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename=Relatorio_acervo.pdf'
+
+    response.write(relatorio_estoque().getvalue())
+
+    return response
+
+@login_required(login_url='login_auth')
+def download_categorias(request):
+
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename=Grafico_categorias.pdf'
+
+    response.write(grafico_categorias().getvalue())
+
+    return response
+
 
     
-
 
 
 def logoutp(request):

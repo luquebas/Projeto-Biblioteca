@@ -15,6 +15,19 @@
 <body>
   {%block content%}
     <!-- criar container para texto (ter margem à esquerda) -->
+    <center>
+        <button>
+            <a href="{% url 'download_acervo' %}" download>
+                <i id="dwnld" class="bi bi-download"></i>
+            </a>
+        </button>
+
+        <button>
+            <a href="{% url 'download_categorias' %}" download>
+                <i id="dwnld" class="bi bi-download"></i>
+            </a>
+        </button>
+    </center>
     <div class="header-top">
       <h1 class="h1-emprestimo-livros">Histórico</h1>
     </div>

@@ -17,5 +17,6 @@ urlpatterns = [
     path('update_book/<int:book_id>/', views.updatebook, name='updatebook'),
     path('registerBorrowing/', views.registerBorrowing, name='registerBorrowing'),
     path('historico/', views.historico, name='historico'),
+    path('download_comprovante/<int:emprestimo_id>/', views.download_comprovante, name='download_comprovante'),
     path('logout/', views.logoutp, name='logout')
 ] 

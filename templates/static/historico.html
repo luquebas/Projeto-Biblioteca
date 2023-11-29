@@ -36,7 +36,7 @@
                     <th>{{emprestimo.email}}</th>
                     <th>{{emprestimo.date}}</th>
                     <th>
-                        <a href="#">
+                        <a href="{% url 'download_comprovante' emprestimo.id %}" download>
                             <i id="dwnld" class="bi bi-download"></i>
                         </a>
                     </th>

@@ -170,7 +170,6 @@ def registerBorrowing(request):
             name=nome,
             email=email,
             book=book,
-            pdf= pdf.output(dest='D')
             )
 
             new_borrowing.save()
@@ -220,12 +219,29 @@ def updatebook(request, book_id):
 def historico(request):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()
+    books = BookRegister.objects.all()
+    emprestimos = BorrowingData.objects.all()
     if request.method == 'GET':
-        books = BookRegister.objects.all()
-        emprestimos = BorrowingData.objects.all()
         return render(request, 'static/historico.html', {'books': books, 'emprestimos': emprestimos, 'formRegistroLivros': formRegistroLivros, 'formEmprestimoLivros': formEmprestimoLivros})
-    else:
-        return HttpResponse('Você precisa logar!')
+
+@login_required(login_url='login_auth')
+def download_comprovante(request, emprestimo_id):
+    emprestimo = BorrowingData.objects.get(pk=emprestimo_id)
+
+    pdf_comprovante = GeradorPdf('P','mm','A4')
+    pdf_comprovante.chapter_body(emprestimo.name, emprestimo.book)
+    pdf_comprovante.output(dest='S')
+
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename=Comprovante-{emprestimo.name}.pdf'
+
+    return response
+
+    
+
+    
+
+
 
 def logoutp(request):
     if request.user.is_authenticated:

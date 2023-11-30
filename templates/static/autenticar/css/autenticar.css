@@ -320,6 +320,7 @@ main {
     .mobile-texts a {
         font-weight: 800;
     }
+
 }
 
 
@@ -362,6 +363,8 @@ main {
   border: 2px solid rgb(36, 97, 159);
   outline: none;
  }
+
+
  #tema-dark::before {
   content: "";
   position: absolute;

@@ -10,7 +10,6 @@ from .utils import return_image, gerar_codigo, GeradorPdf, relatorio_estoque, gr
 from django.core.mail import EmailMessage
 from django.contrib import messages
 import io
-import plotly.express as px
 
 def init(request):
     if request.method == 'GET':
@@ -264,7 +263,6 @@ def download_categorias(request):
 
         fig_estado = graph_estado()
         graph_html_estado = fig_estado.to_html(full_html=False)
-
 
 
         return render(request, 'static/grafico.html', {'graph_html_categoria': graph_html_categoria, 'graph_html_disponibilidade': graph_html_disponibilidade, 'graph_html_estado': graph_html_estado})

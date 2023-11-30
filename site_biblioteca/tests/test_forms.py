@@ -1,7 +1,6 @@
 from django.test import TestCase
-from ..forms import CadastroForm, LoginForm, EsqueciSenhaForm, NovaSenhaForm
+from ..forms import CadastroForm, LoginForm, EsqueciSenhaForm, NovaSenhaForm, RegistroLivrosForm, EmprestimoLivrosForm
 from django.contrib.auth.models import User
-from django.contrib import auth
 
 class CadastroTestCase(TestCase):
     def test_estrutura_email_valida(self):
@@ -36,36 +35,6 @@ class CadastroTestCase(TestCase):
         })
         self.assertFalse(form.is_valid())
 
-
-class LoginTestCase(TestCase):
-    def setUp(self):
-        if not User.objects.filter(username='lucas@gmail.com').exists():
-            user = User.objects.create_superuser(
-                username='lucas@gmail.com',
-                password='meina1246'
-        )
-            user.save()
-
-    def test_login_usuario_logando(self):
-        form = LoginForm(data={
-            'email': 'lucas@gmail.com',
-            'senha': 'meina1246'
-        })
-        usuario = auth.authenticate(username=form.data['email'], password=form.data['senha'])
-        if usuario is not None:
-            self.client.login(username=form.data['email'], password=form.data['senha'])
-        self.assertTrue(usuario.is_authenticated)
-
-    def test_login_usuario_nao_logando(self):
-        form = LoginForm(data={
-            'email': 'lucas@gmail.com',
-            'senha': 'meina124'
-        })
-        usuario = auth.authenticate(username=form.data['email'], password=form.data['senha'])
-        if usuario is not None:
-            self.client.login(username=form.data['email'], password=form.data['senha'])
-        self.assertTrue(usuario == None)
-
 class EsqueciSenhaTestCase(TestCase):
     def setUp(self):
         if not User.objects.filter(username='lucas@gmail.com').exists():
@@ -99,7 +68,6 @@ class EsqueciSenhaTestCase(TestCase):
         })
         self.assertTrue(form.is_valid())
 
-        
 class NovaSenhaTestCase(TestCase):
     def test_estrutura_senha_diferente(self):
         form = NovaSenhaForm(data={

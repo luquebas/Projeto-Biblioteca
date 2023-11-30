@@ -109,32 +109,59 @@ def relatorio_estoque():
     html = dataframe.to_html()
     html = f"""
             <html>
-            <head>
-                <style>
-                    table {{
-                        border-collapse: collapse;
-                        width: 100%;
-                    }}
-                    th, td {{
-                        padding: 8px;
-                        border-bottom: 1px solid #ddd;
-                    }}
-                    th {{
-                        background-color: #f2f2f2;
-                    }}
-                    h1 {{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }}
-                </style>
-            </head>
-            <body>
-                <h1>Relatório da Quantidade de Livros</h1>
-                {html}
-            </body>
-            </html>
-        """
+    <head>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&family=Poppins:wght@100;300&display=swap');
+        body {{
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        main {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            overflow-x: auto; /* criar uma rolagem horizontal (dentro da table) caso a table ultrapasse a tela */
+            margin: 5% auto;
+            max-width: 80%;
+        }}
+        table {{
+            border-collapse: collapse;
+            text-align: center;
+            color: black;
+            font-size: 1rem;
+            border: 2px solid black;
+        }}
+        th {{
+            background-color: rgba(30, 143, 255, 0.600);
+        }}
+        td {{
+            background-color: dodgerblue;
+            color: #fff;
+        }}
+        th, td {{
+            border: 1px solid black;
+            padding: 12px;  
+        }}
+        svg {{
+            padding: 0 4px 0 4px;
+            width: 16px;
+            height: 16px;
+        }}
+    </style>
+    </head>
+    <body>
+        <main>
+        <table>
+            <h1>Relatório da Quantidade de Livros</h1>
+            {html}
+        </table>    
+        </main>
+    </body>
+    </html>
+"""
     pdf_data = BytesIO()
 
     pisa.CreatePDF(html, dest=pdf_data)
@@ -176,4 +203,3 @@ def graph_estado():
     fig = px.pie(values=random_x, color_discrete_sequence=px.colors.sequential.Turbo, names=names, title='Quantidade de Livros por Estado de Conservação')
 
     return fig
-

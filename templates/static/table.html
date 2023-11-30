@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&family=Poppins:wght@100;300&display=swap');
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            overflow-x: auto; /* criar uma rolagem horizontal (dentro da table) caso a table ultrapasse a tela */
+            margin: 5% auto;
+            max-width: 80%;
+        }
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            color: black;
+            font-size: 1rem;
+            border: 2px solid black;
+        }
+        th {
+            background-color: rgba(30, 143, 255, 0.600);
+        }
+        td {
+            background-color: dodgerblue;
+            color: #fff;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 12px;  
+        }
+        svg {
+            padding: 0 4px 0 4px;
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* tabela responsiva */
+        @media (max-width: 767px) {
+            table {
+                font-size: 0.6rem;
+                overflow-y: auto;
+            }
+            td, th {
+                padding: 6px;
+            }
+            svg {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="5" id="title">Tabela com HTML e CSS</th>
+                    </tr>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Instituição</th>
+                <th>Profissão</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bruno Diniz</td>
+                <td>17</td>
+                <td>SENAI</td>
+                <td>Desenvolvedor(a) front-end</td>
+                <td>SP</td>
+            </tr>
+            <tr>
+                <td>Daniela Silva</td>
+                <td>32</td>
+                <td>DevClub</td>
+                <td>Desenvolvedor(a) full-stack</td>
+                <td>RJ</td>
+            </tr><tr>
+                <td>João Vitor</td>
+                <td>28</td>
+                <td>a definir</td>
+                <td>Desenvolvedor back-end</td>
+                <td>RS</td>
+            </tr>
+            <tr>
+                <td>Rafela Ferreira</td>
+                <td>43</td>
+                <td>DevClub</td>
+                <td>Desenvolvedor(a) front-end</td>
+                <td>SP</td>
+            </tr>
+            </tbody>        </main>
+    </body>
+    </html>
+"""

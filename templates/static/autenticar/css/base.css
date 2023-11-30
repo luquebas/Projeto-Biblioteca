@@ -39,6 +39,7 @@ nav.menu-lateral{
   background-color: #fff;
   justify-content: center;
   overflow-y: auto; /* permitir que a sidebar tenha rolagem vertical */
+  z-index: 999;
 }
 
 /* scroll invisível */

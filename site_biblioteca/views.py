@@ -6,10 +6,11 @@ from django.contrib.auth.decorators import login_required
 from .models import BookRegister, BorrowingData
 from django.contrib.auth import logout
 from .forms import LoginForm, CadastroForm, EsqueciSenhaForm, NovaSenhaForm, RegistroLivrosForm, EmprestimoLivrosForm
-from .utils import return_image, gerar_codigo, GeradorPdf, relatorio_estoque, grafico_categorias
+from .utils import return_image, gerar_codigo, GeradorPdf, relatorio_estoque, graph_disponibility, graph_categories, graph_estado
 from django.core.mail import EmailMessage
 from django.contrib import messages
 import io
+import plotly.express as px
 
 def init(request):
     if request.method == 'GET':
@@ -246,7 +247,7 @@ def download_comprovante(request, emprestimo_id):
 @login_required(login_url='login_auth')
 def download_acervo(request):
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = f'attachment; filename=Relatorio_acervo.pdf'
+    response['Content-Disposition'] = f'attachment; filename="Relatorio_acervo.pdf"'
 
     response.write(relatorio_estoque().getvalue())
 
@@ -254,16 +255,19 @@ def download_acervo(request):
 
 @login_required(login_url='login_auth')
 def download_categorias(request):
+    if request.method == 'GET':
+        fig_categoria = graph_categories()
+        graph_html_categoria = fig_categoria.to_html(full_html=False)
 
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename=Grafico_categorias.pdf'
+        fig_disponibilidade = graph_disponibility()
+        graph_html_disponibilidade = fig_disponibilidade.to_html(full_html=False)
 
-    response.write(grafico_categorias().getvalue())
+        fig_estado = graph_estado()
+        graph_html_estado = fig_estado.to_html(full_html=False)
 
-    return response
 
 
-    
+        return render(request, 'static/grafico.html', {'graph_html_categoria': graph_html_categoria, 'graph_html_disponibilidade': graph_html_disponibilidade, 'graph_html_estado': graph_html_estado})
 
 
 def logoutp(request):

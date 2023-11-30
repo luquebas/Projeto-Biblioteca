@@ -9,6 +9,7 @@ import plotly.express as px
 from io import BytesIO
 import datetime
 
+
 class GeradorPdf(FPDF):
 
     def header(self):
@@ -103,7 +104,7 @@ def relatorio_estoque():
     query = BookRegister.objects.values('nameBook')
 
     dataframe = pd.DataFrame.from_records(query)
-    dataframe.loc['Total'] = pd.Series(dataframe['nameBook'].sum(), index=['NameBook'])
+    dataframe.loc['Total'] = f"{len(BookRegister.objects.all())} Livros"
     
     html = dataframe.to_html()
     html = f"""
@@ -140,24 +141,39 @@ def relatorio_estoque():
 
     return pdf_data
 
-def grafico_categorias():
-
-    livros = BookRegister.objects.filter(categoria="livro")
+def graph_categories():
+    livros = BookRegister.objects.filter(categoria="Livro")
     periodicos = BookRegister.objects.filter(categoria="Periódico")
     folheto_tecnico = BookRegister.objects.filter(categoria="Folheto Técnico")
 
-    # Definindo as variáveis
     random_x =[len(livros), len(periodicos), len(folheto_tecnico)]
     names = ['Livro', 'Periódico', 'Folheto Técnico']
 
-    #Personalizando
-    fig = px.pie(values=random_x, color_discrete_sequence=px.colors.sequential.Turbo, names=names, title='Quantidade de Livro por Gênero')
 
-    #Convertendo para Imagem
-    image = fig.write_image('fig.jpeg')
+    fig = px.pie(values=random_x, color_discrete_sequence=px.colors.sequential.Turbo, names=names, title='Quantidade de Livros por Gênero')
 
-    #Gerando PDF
-    pdf_bytes = BytesIO()
-    pisa.CreatePDF(image, dest=pdf_bytes)
+    return fig
 
-    return pdf_bytes
+def graph_disponibility():
+    disponivel = BookRegister.objects.filter(disponivel=True)
+    indisponivel = BookRegister.objects.filter(disponivel=False)
+
+    random_x =[len(disponivel), len(indisponivel)]
+    names = ['Disponível', 'Indisponível']
+
+    fig = px.pie(values=random_x, color_discrete_sequence=px.colors.sequential.Turbo, names=names, title='Quantidade de Livros por Disponibilidade')
+
+    return fig
+
+def graph_estado():
+    novo = BookRegister.objects.filter(estado="Novo")
+    seminovo = BookRegister.objects.filter(estado="Seminovo")
+    usado = BookRegister.objects.filter(estado="Usado")
+
+    random_x =[len(novo), len(seminovo), len(usado)]
+    names = ['Novo', 'Seminovo', 'Usado']
+
+    fig = px.pie(values=random_x, color_discrete_sequence=px.colors.sequential.Turbo, names=names, title='Quantidade de Livros por Estado de Conservação')
+
+    return fig
+

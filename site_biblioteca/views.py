@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .models import BookRegister, BorrowingData
 from django.contrib.auth import logout
 from .forms import LoginForm, CadastroForm, EsqueciSenhaForm, NovaSenhaForm, RegistroLivrosForm, EmprestimoLivrosForm
-from .utils import return_image, gerar_codigo, GeradorPdf, relatorio_estoque, graph_disponibility, graph_categories, graph_estado
+from .utils import return_image, gerar_codigo, relatorio_estoque, graph_disponibility, graph_categories, graph_estado
+from .GeradorPdf import GeradorPdf
 from django.core.mail import EmailMessage
 from django.contrib import messages
 import io
@@ -210,11 +211,12 @@ def updatebook(request, book_id):
 
     if request.method == "POST":
         formRegistroLivros = RegistroLivrosForm(request.POST, request.FILES, instance=book)
+        formEmprestimoLivros = EmprestimoLivrosForm()
         if formRegistroLivros.is_valid():
             formRegistroLivros.save()
             return redirect('home')
         else:
-            return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros,'book': book})
+            return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros,'book': book, 'formEmprestimoLivros': formEmprestimoLivros})
     
 @login_required(login_url='login_auth')
 def historico(request):
@@ -232,14 +234,13 @@ def download_comprovante(request, emprestimo_id):
     pdf_bytes = io.BytesIO()
 
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = f'attachment; filename=Comprovante-{emprestimo.name}.pdf'
+    response['Content-Disposition'] = f'attachment; filename="Comprovante-{emprestimo.name}.pdf"'
     
     pdf_comprovante = GeradorPdf('P','mm','A4')
     pdf_comprovante.chapter_body(emprestimo.name, emprestimo.book)
     pdf_comprovante.output(pdf_bytes, dest='S')
 
     response.write(pdf_bytes.getvalue())
-
 
     return response
 
@@ -254,6 +255,8 @@ def download_acervo(request):
 
 @login_required(login_url='login_auth')
 def download_categorias(request):
+    formRegistroLivros = RegistroLivrosForm()
+    formEmprestimoLivros = EmprestimoLivrosForm()
     if request.method == 'GET':
         fig_categoria = graph_categories()
         graph_html_categoria = fig_categoria.to_html(full_html=False)
@@ -264,8 +267,7 @@ def download_categorias(request):
         fig_estado = graph_estado()
         graph_html_estado = fig_estado.to_html(full_html=False)
 
-
-        return render(request, 'static/grafico.html', {'graph_html_categoria': graph_html_categoria, 'graph_html_disponibilidade': graph_html_disponibilidade, 'graph_html_estado': graph_html_estado})
+        return render(request, 'static/grafico.html', {'graph_html_categoria': graph_html_categoria, 'graph_html_disponibilidade': graph_html_disponibilidade, 'graph_html_estado': graph_html_estado, 'formRegistroLivros': formRegistroLivros, 'formEmprestimoLivros': formEmprestimoLivros})
 
 
 def logoutp(request):

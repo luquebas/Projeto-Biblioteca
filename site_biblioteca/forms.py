@@ -280,7 +280,7 @@ class EmprestimoLivrosForm(forms.Form):
         )    
     )
 
-    CHOICES=[(book, book) for book in BookRegister.objects.all()]
+    CHOICES=[(book, book) for book in BookRegister.objects.all() if book.disponivel == True]
     livro=forms.ChoiceField(
         required=True,
         widget=forms.Select(

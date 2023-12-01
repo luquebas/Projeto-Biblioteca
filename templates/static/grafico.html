@@ -14,12 +14,20 @@
 </head>
 <body>
     {%block content %}
+    <h1 class="h1-graphs">Gráficos</h1>
+
     <div class="graphs">
-        {{graph_html_categoria | safe}}
+        <span class="graph">
+            {{graph_html_categoria | safe}}
+        </span>
 
-        {{graph_html_disponibilidade | safe}}
+        <span class="graph">
+            {{graph_html_disponibilidade | safe}}
+        </span>
 
+        <span class="graph">
         {{graph_html_estado | safe}}
+        </span>
     </div>
 
     {% endblock %}

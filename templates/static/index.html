@@ -82,12 +82,14 @@
                         <i class="fa-brands fa-google"></i>
                         </a>
                     </div>
+
                     <p>ou cadastre seu email</p>
                     {% for field in formregister.visible_fields%}
                     <div id="login-inputs" data-validate="Campos Requeridos">
                         <label for="{{field.id_for_label}}" style=display:none>{{field.label}}</label>
                         {{field}}
-                    </div>
+                </div>
+
                     {% endfor %}
                     <!-- gerador de senhas fortes -->
                     <div id="container-strongPassword">
@@ -104,6 +106,7 @@
                               </svg>
                         </div>
                     </div>
+
                     <button type="submit" class="register-button">Cadastrar</button>
                     <p class="mobile-texts">Já tem conta? 
                         <a class="registroMobile" id="registroMobileLogin" style="color:cornflowerblue">Login</a>

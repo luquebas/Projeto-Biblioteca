@@ -282,7 +282,12 @@ main {
 .mobile-texts {
     display: none;
 }
-
+#tema-dark2 {
+    display: none;
+}
+.toggle-switch {
+    margin: none;
+}
 /*responsividade mobile*/
 
 @media (max-width:768px) {
@@ -320,6 +325,9 @@ main {
     .mobile-texts a {
         font-weight: 800;
     }
+    #tema-dark2 {
+        display: block; /* mostrar o botão de tema dark 2 apenas para mobile */
+    }
 
 }
 
@@ -348,12 +356,17 @@ main {
  .mode-text {
     color: black;
  }
- 
+ .camadaElementos {
+    margin: 16px 0 0 0;
+ }
  .item-menu {
     list-style: none; /* retirar a bolinha do <li> presente no botão do tema dark */
     z-index: 999; /* sobrepor o botão ao overlay */
  }
-#tema-dark {
+.toggle-switch {
+    margin: 0 0 16px 0 !important; /* margin-bottom: 16px */
+}
+#tema-dark, #tema-dark2 {
   position: relative;
   height: 33px;
   width: 66px;
@@ -363,9 +376,7 @@ main {
   border: 2px solid rgb(36, 97, 159);
   outline: none;
  }
-
-
- #tema-dark::before {
+ #tema-dark::before, #tema-dark2::before {
   content: "";
   position: absolute;
   height: 22px;
@@ -380,7 +391,7 @@ main {
   transition: all 0.4s;
   z-index: 999; /* sobreposição do botão */
  }
- body.dark#tema-dark::before {
+ body.dark#tema-dark::before, body.dark#tema-dark2::before {
     left: 20px; /* mover o círculo do botão */
  }
 svg {
@@ -425,11 +436,11 @@ svg {
     color: black;
  }
 
- .dark #tema-dark {
+ .dark #tema-dark, .dark #tema-dark2 {
     background-color: #fff;
 }
 
-.dark #tema-dark::before {
+.dark #tema-dark::before, .dark #tema-dark2::before {
     border: 1px solid black;
     /* left: 18px; o círculo interno sairá da esquerda para a direita */
     left: 36px;
@@ -437,8 +448,8 @@ svg {
     transition: all 0.4s;
 }
 .dark #overlay1, .dark #overlay2 {
-    background: linear-gradient(270deg,#121212,#575757 );
-    /* background: linear-gradient(270deg,rgb(63, 135, 207), #575757 ); */
+    /* background: linear-gradient(270deg#575757 ,#121212); */
+    background: linear-gradient(270deg,rgb(63, 135, 207), #575757 );
     /* background: #555; */
     /* background: rgb(64, 95, 126); */
 }

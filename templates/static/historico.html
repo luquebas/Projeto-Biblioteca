@@ -15,22 +15,23 @@
 <body>
   {%block content%}
     <!-- criar container para texto (ter margem à esquerda) -->
-    <center>
-        <button>
-            <a href="{% url 'download_acervo' %}" download>
-                <i id="dwnld" class="bi bi-download"></i>
-            </a>
-        </button>
-
-        <button>
-            <a href="{% url 'download_categorias' %}">
-                <i id="dwnld" class="bi bi-download"></i>
-            </a>
-        </button>
-    </center>
     <div class="header-top">
-      <h1 class="h1-emprestimo-livros">Histórico</h1>
+        <h1 class="h1-emprestimo-livros">Histórico</h1>
     </div>
+    <div class="container-btn-relatorio">
+        <a href="{% url 'download_acervo' %}" download>
+            <button class="btn-graficoClass"> Gerar Relatório do Acervo &nbsp
+                <i id="dwnld_acervo" class="bi bi-download"></i>
+            </button>
+        </a>
+
+        <a href="{% url 'download_categorias' %}">
+            <button class="btn-graficoClass"> Visualizar Gráficos &nbsp
+                <i id="graficos" class="bi bi-graph-up"></i>
+            </button>
+        </a>
+    </div>
+    
     <div id="container">
         <div class="table-widget">
         <table>

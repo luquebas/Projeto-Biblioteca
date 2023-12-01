@@ -204,10 +204,11 @@ def deletebook(request, book_id):
     
 @login_required(login_url='login_auth')
 def updatebook(request, book_id):
+    formEmprestimoLivros = EmprestimoLivrosForm()
     book = BookRegister.objects.get(pk=book_id)
     formRegistroLivros = RegistroLivrosForm(instance=book)
     if request.method == 'GET':
-        return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros,'book': book})
+        return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros, 'formEmprestimoLivros': formEmprestimoLivros, 'book': book})
 
     if request.method == "POST":
         formRegistroLivros = RegistroLivrosForm(request.POST, request.FILES, instance=book)

@@ -1,0 +1,91 @@
+#containerBook {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    width: 90%;
+    margin-left: auto; /* centralizar com o valor do width 90% */
+    align-items: center;
+}
+aside {
+    color: black;
+    font-size: 1rem;
+    padding: 24px;
+    width: 50%;
+}
+.book-info {
+   display: flex;
+   justify-content: space-between;
+}
+img {
+ width: 273px;
+ height: 700px;
+}
+
+#containerBtn {
+    display: inline-flex; /* manter ambos os botões na mesma linha */
+    margin-left: auto;
+    width: 300px;
+}
+#card-book {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    font-size: 1.4rem;
+}
+main {
+  width: 80%;
+  padding: 48px;
+  height: 80%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row; /* Change this line */
+}
+.book-info, aside {
+  flex: 1; /* Add this line */
+}
+
+#livrotitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(25, 132, 239);
+    margin-top: 10px;
+}
+
+#formfield {
+    margin: 0 12px 0 0;
+}
+@media (max-width: 968px) {
+    main {
+        overflow-y: auto;
+    }
+}
+@media (max-width: 728px) {
+  main {
+    margin-left: 16%;
+    justify-content: center;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+     flex-direction: column;
+     height: 60vh;
+  }
+  img {
+    float: inline-start;
+    width: 140px;
+    display: none;
+  }
+  #containerBook {
+    display: flex;
+    flex-direction: column;
+  }
+  #containerBtn {
+    flex-direction: column;
+  }
+  button {
+    margin-top: 12px;
+  }
+}

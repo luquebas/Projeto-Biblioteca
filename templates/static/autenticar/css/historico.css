@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
 
 #container {
+    margin-left: 100px;
     display: flex;
     justify-content: center;
     margin-top: 36px;
@@ -56,6 +57,15 @@ background-color: #f6f9ff;
 text-align: center;
 text-transform: uppercase;
 font-size: 3rem;
+margin-left: 100px;
+margin-top: 10px;
+color:rgb(111, 132, 252)
+}
+.container-btn-relatorio {
+    display: flex;
+    margin-left: 100px;
+    width: 87vw ;
+    justify-content: space-around;
 }
 
 #dwnld{
@@ -64,6 +74,44 @@ font-size: 3rem;
     justify-content: center;
     color: white;
 }
+
+#dwnld_acervo {
+    font-size: 15px;
+    color: rgb(111, 132, 252);
+}
+
+
+#graficos {
+    font-size: 15px;
+    color: rgb(111, 132, 252);
+}
+
+.btn-graficoClass {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: none;
+    border: solid 2px #474544;
+    color: #474544;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Helvetica", Arial, sans-serif;
+    font-size: 0.875em;
+    font-weight: bold;
+    outline: none;
+    padding: 20px 35px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-graficoClass:hover {
+    background: #474544;
+    color: #f2f3eb;
+  }
+
 
 a {
     text-decoration: none;

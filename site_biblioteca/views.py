@@ -113,7 +113,6 @@ def trocar_senha(request):
             return render(request, 'static/nova_senha.html', {'trocar_senha_form': trocar_senha_form})
 
 
-@login_required(login_url='login_auth')
 def home(request):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()
@@ -185,7 +184,6 @@ def registerBorrowing(request):
     else:
         return redirect('home')
     
-@login_required(login_url='login_auth')
 def livroview(request, book_id):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()
@@ -202,7 +200,6 @@ def deletebook(request, book_id):
     else:
         return render(request, 'static/home.html')
     
-@login_required(login_url='login_auth')
 def updatebook(request, book_id):
     formEmprestimoLivros = EmprestimoLivrosForm()
     book = BookRegister.objects.get(pk=book_id)
@@ -219,7 +216,7 @@ def updatebook(request, book_id):
         else:
             return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros,'book': book, 'formEmprestimoLivros': formEmprestimoLivros})
     
-@login_required(login_url='login_auth')
+
 def historico(request):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()
@@ -254,7 +251,7 @@ def download_acervo(request):
 
     return response
 
-@login_required(login_url='login_auth')
+
 def download_categorias(request):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()

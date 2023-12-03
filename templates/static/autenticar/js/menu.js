@@ -33,7 +33,6 @@ function alternarTema() {
     const sidebarJs = document.querySelector('.menu-lateral');
     const btnJs = document.querySelector('#tema-dark');
     const h1 = document.querySelector('.h1-emprestimo-livros');
-    const btnExclusion = document.querySelector('#formfield')
     const icons = document.querySelectorAll('.item-menu');
 
     // se body conter a classe '.dark'
@@ -43,8 +42,6 @@ function alternarTema() {
         body.classList.remove('dark');
         sidebarJs.classList.remove('dark'); // Remova a classe 'dark' da barra lateral
         btnJs.classList.remove('dark');
-        temaTxt.classList.remove('dark');
-        h1.style.color = 'rgb(25, 132, 239)';
 
         icons.forEach((icon) => {
             icon.classList.remove('dark');
@@ -54,9 +51,6 @@ function alternarTema() {
         body.classList.add('dark');
         sidebarJs.classList.add('dark'); // Adicione a classe 'dark' à barra lateral
         btnJs.classList.add('dark');
-        temaTxt.classList.add('dark');
-        h1.style.color = '#fff';
-        btnExclusion.classList.add('dark');
         
         icons.forEach((icon) => {
             icon.classList.add('dark');

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
@@ -112,7 +112,7 @@ def trocar_senha(request):
         else:
             return render(request, 'static/nova_senha.html', {'trocar_senha_form': trocar_senha_form})
 
-
+@login_required(login_url='login_auth')
 def home(request):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()
@@ -121,6 +121,19 @@ def home(request):
         return render(request, 'static/home.html', {'books': books, 'formRegistroLivros': formRegistroLivros, 'formEmprestimoLivros': formEmprestimoLivros})
     else:
         return HttpResponse('Você precisa logar!')
+    
+@login_required(login_url='login_auth')
+def pesquisa(request):
+    if request.method == 'POST':
+        nome_book = request.POST.get('nome_book')
+        try:
+            book = BookRegister.objects.get(nameBook=nome_book)
+            return redirect('livroview', book_id=book.id)
+        except BookRegister.DoesNotExist:
+            raise Http404('livro não encontrado')
+    else:
+        return redirect('home')
+
 
 @login_required(login_url='login_auth')
 def registerbook(request):
@@ -184,6 +197,7 @@ def registerBorrowing(request):
     else:
         return redirect('home')
     
+@login_required(login_url='login_auth')    
 def livroview(request, book_id):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()
@@ -199,7 +213,8 @@ def deletebook(request, book_id):
         return redirect('home')
     else:
         return render(request, 'static/home.html')
-    
+
+@login_required(login_url='login_auth')    
 def updatebook(request, book_id):
     formEmprestimoLivros = EmprestimoLivrosForm()
     book = BookRegister.objects.get(pk=book_id)
@@ -216,7 +231,7 @@ def updatebook(request, book_id):
         else:
             return render(request, 'static/editar_livro.html', {'formRegistroLivros': formRegistroLivros,'book': book, 'formEmprestimoLivros': formEmprestimoLivros})
     
-
+@login_required(login_url='login_auth')
 def historico(request):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()
@@ -251,7 +266,7 @@ def download_acervo(request):
 
     return response
 
-
+@login_required(login_url='login_auth')
 def download_categorias(request):
     formRegistroLivros = RegistroLivrosForm()
     formEmprestimoLivros = EmprestimoLivrosForm()

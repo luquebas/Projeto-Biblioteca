@@ -23,3 +23,43 @@ Um sistema biblioteca construído utilizando `python3.11` e `Django4.2`.
 - Banco de Dados Postgresql criado no Google Cloud para armazenamento de dados da aplicação, usuários, relatórios e notificações.
 - Deploy da aplicação feita através do Google Cloud.
 - Bibliotecas python para gerar gráficos, tabelas e relatórios.
+
+---
+
+## Executando este projeto
+
+Para colocar este projeto em funcionamento você deve começar instalando o Python em seu computador. É aconselhável criar um ambiente virtual para armazenar as dependências dos seus projetos separadamente. Você pode instalar o virtualenv com
+
+```
+pip install virtualenv
+```
+
+Clone ou baixe este repositório e abra-o no editor de sua preferência. Em um terminal linux ou windows, execute o seguinte comando no diretório base deste projeto
+
+```
+virtualenv env
+```
+
+Isso criará uma nova pasta `env` no diretório do seu projeto. Em seguida, ative-o com este comando no Linux:
+
+```
+source env/bin/activate
+```
+
+Em seguida, instale as dependências do projeto com
+
+```
+pip install -r requirements.txt
+```
+
+Agora você pode executar o projeto com este comando
+
+```
+python manage.py runserver
+```
+
+**Observação** se quiser que o Google OAuth funcione, você precisará inserir suas próprias chaves de API do Google no arquivo `.env` nos arquivos de configurações.
+
+**Nota** você deve criar um banco de dados PostgreSQL e inserir seus próprios dados do banco de dados no arquivo `.env` nos arquivos de configurações.
+
+---

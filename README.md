@@ -13,6 +13,8 @@ Um sistema biblioteca construído utilizando `python3.11` e `Django4.2`.
 |Ambientes|  [![ Tecnologias ](https://skillicons.dev/icons?i=vscode,github,googlecloud&theme=dark )]( https://skillicons.dev ) |
 |Outras tecnologias utilizadas| [![Tecnologias](https://skillicons.dev/icons?i=git,figma&theme=dark)](https://skillicons.dev) |
 
+---
+
 ## Principais características
 - Login OAuth suportado - Google.
 - Utilização da API Open Library para requisição de imagens e JSONs.

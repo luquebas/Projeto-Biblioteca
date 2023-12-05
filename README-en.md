@@ -13,6 +13,7 @@ A library system based on `python3.11` and `Django4.2`.
 |Environments| [![Technologies](https://skillicons.dev/icons?i=vscode,github,googlecloud&theme=dark)](https://skillicons.dev)|
 |Other Technologies Used| [![Technologies](https://skillicons.dev/icons?i=git,figma&theme=dark)](https://skillicons.dev)|
 
+--- 
 ## Main Features
 - Login OAuth supported - Google.
 - API Open Library to request Images and JSONs.

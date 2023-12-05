@@ -76,7 +76,6 @@ img {
         margin: 0;
 }
 #btn-voltar:hover {
-         background:dodgerblue;    
          background-color: #6083D3;
          color: #fff;
 }
@@ -105,7 +104,6 @@ img {
 
 @media (max-width:768px) {
     img{
-        display:flex;
         width: 80vw;
         height: 50vh;
         float: right;

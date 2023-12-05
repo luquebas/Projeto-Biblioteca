@@ -1,4 +1,5 @@
 import requests
+from requests.exceptions import RequestException
 from django.templatetags.static import static
 from .models import BookRegister
 import random
@@ -8,19 +9,18 @@ import plotly.express as px
 from io import BytesIO
 
 def return_image(name):
-    response = requests.get(f'https://openlibrary.org/search.json?q={name}')
-    data = response.json()
-    static_img = static('autenticar/img/nao-encontrado.jpeg')
-
-    if 'docs' in data and 'isbn' in data['docs'][0]:
+    try:
+        response = requests.get(f'https://openlibrary.org/search.json?q={name}')
+        data = response.json()
         isbn = data['docs'][0]['isbn'][0]
-        img_response = requests.get(f"https://covers.openlibrary.org/b/isbn/{isbn}-M.jpg?default=false")
+    
+        img_url = f"https://covers.openlibrary.org/b/isbn/{isbn}-M.jpg?default=false"
 
-        if img_response.status_code != 404:
-            return f"https://covers.openlibrary.org/b/isbn/{isbn}-M.jpg?default=false"
-        else:
-            return static_img
-    return static_img
+        return img_url 
+    
+    except:
+        static_img = static('autenticar/img/nao-encontrado.jpeg')
+        return static_img
 
 def gerar_codigo():
     nums = []

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'autenticar/css/error404.css' %}" type="text/css">
+</head>
+<body>
+    <div class="circleBase circle1"></div>
+    <div class="circleBase circle2"></div>
+    <div id="conteiner">
+        <div class="text">
+            <h1>404</h1>
+            <p>Página não encontrada</p>
+            <a href="{% url 'home' %}">
+                <button id="btn-voltar">Voltar para Home</button>
+            </a>
+        </div>
+        <img src="{% static 'autenticar/img/cat-astronaut.gif' %}">
+    </div>
+    <div class="circleBase circle3"></div>
+</body>
+</html>

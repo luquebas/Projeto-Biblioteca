@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('', views.init, name="inicio"),
     path('register_auth/', views.register_auth, name='register_auth'),
@@ -19,5 +20,7 @@ urlpatterns = [
     path('download_comprovante/<int:emprestimo_id>/', views.download_comprovante, name='download_comprovante'),
     path('download_acervo', views.download_acervo, name='download_acervo'),
     path('download_categorias', views.download_categorias, name='download_categorias'),
-    path('logout/', views.logoutp, name='logout')
-] 
+    path('logout/', views.logoutp, name='logout'),
+]
+
+handler404 = 'site_biblioteca.views.handler404'

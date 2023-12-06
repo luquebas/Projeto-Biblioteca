@@ -30,6 +30,13 @@ const btnJs = document.getElementById("tema-dark"); // Pegando o botão do HTML
 const sidebarJs = document.querySelector('.menu-lateral');
 const h1 = document.querySelector('.h1-emprestimo-livros');
 const icons = document.querySelectorAll('.item-menu');
+const btnDisponibilidade = document.querySelector("#btn-disponivel")
+const livros = document.querySelector(".element-content")
+const searchInput = document.querySelector("#searchInput")
+const searchBtn = document.querySelector("#searchBtn")
+const btnHistorico = document.querySelector(".btn-graficoClass")
+const asideInfo = document.querySelector("#asideInfo")
+const dadosBtn = document.querySelector(".form_button")
 
 btnJs.addEventListener('click', alternarTema); // Adicionando função ao botão
 
@@ -42,6 +49,13 @@ function alternarTema() {
        body.classList.remove('dark');
        sidebarJs.classList.remove('dark'); // Remova a classe 'dark' da barra lateral
        btnJs.classList.remove('dark');
+       btnDisponibilidade.remove('dark')
+       livros.remove('dark')
+       searchInput.remove('dark')
+       searchBtn.remove('dark')
+       btnHistorico.remove('dark')       
+       asideInfo.remove('dark')
+       dadosBtn.remove('dark')
 
        icons.forEach((icon) => {
            icon.classList.remove('dark');
@@ -51,7 +65,13 @@ function alternarTema() {
        body.classList.add('dark');
        sidebarJs.classList.add('dark'); // Adicione a classe 'dark' à barra lateral
        btnJs.classList.add('dark');
-       
+       btnDisponibilidade.add('dark')
+       livros.add('dark')    
+       searchInput.add('dark')
+       searchBtn.add('dark')
+       btnHistorico.add('dark')
+       asideInfo.add('dark')
+       dadosBtn.add('dark')
        icons.forEach((icon) => {
            icon.classList.add('dark');
        });

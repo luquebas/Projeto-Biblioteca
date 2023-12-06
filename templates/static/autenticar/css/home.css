@@ -9,8 +9,36 @@
     height: 10vh;
     background-color: transparent;
 }
-
-
+.container-top {
+  margin-top: auto; /* fazer com que o topo não seja ultrapassado */
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.container-top h1 {
+  font-size: 1.4rem;
+  color: rgb(25, 132, 239);
+}
+.containerSearch {
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+}
+#searchInput {
+ margin-top: 16px; 
+ border: 1px solid black;
+ padding: 6px 15px;
+ width: 320px;
+ border-radius: 4px;
+}
+#searchBtn {
+  margin-left: 12px;
+  width: 120px;
+  height: 34px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: transparent;
+}
 #icon-logout {
     font-size: 2rem; /* fonte em rem para se adaptar à tela */
     cursor: pointer; /* mudar o cursor do mouse para o icon de logout */
@@ -24,7 +52,7 @@
 }
 .content {
     margin-left: 200px;
-    margin-top: 10px;
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -78,11 +106,6 @@
   cursor:pointer;
 }
 
-.h1-emprestimo-livros {
-    font-size: 2rem;
-    color: rgb(25, 132, 239)
-}
-
 .h1-mobile-emprestimo-livros {
     display: none;
 }
@@ -90,6 +113,20 @@
 
 /* telas de ipad */
 @media screen and (min-width: 728px) and (max-width: 1024px) {
+  .containerSearch {
+    flex-direction: column; /* Muda para coluna em telas menores */
+    align-items: stretch; /* Estica os elementos verticalmente */
+  }
+
+  #searchInput {
+    margin-top: 8px; /* Reduz a margem superior */
+    margin-right: 0; /* Remove a margem direita */
+  }
+
+  #searchBtn {
+    margin-top: 8px; /* Adiciona margem superior ao botão em telas menores */
+  }
+}
     .header-top {
       width: 100vw;
       height: 50px;
@@ -105,10 +142,26 @@
       font-size: 1.5rem; /* Reduzir o tamanho do ícone */
       margin-left: 6px; /* Reduzir a margem à esquerda */
     }
-  }
 
-/* Dentro da regra de mídia para telas menores de 728px (tablets) */
+
+/* Dentro da regra de mídia para telas menores de 728px (celulares) */
 @media screen and (max-width: 728px) {
+  .container-top {
+    margin-left: 48px;
+  }
+  .container-top h1 {
+    font-size: 1rem;
+  }
+  #searchInput {
+    width: 200px;
+    float: right;
+    margin: 12px 26px 0 0;
+  }
+  
+  #searchBtn {
+    float: right;
+    margin: 12px 26px 0 0;
+  }
     .header-top {
       width: 77vw; /* tamanho do container invisível da search-box e logout */
       height: 40px;
@@ -125,24 +178,10 @@
       color: dodgerblue;
     }
   
-    .header-top .input-container {
-      margin-left: 1%;
-    }
-    .h1-emprestimo-livros {
-        display: none;
-    }
-    .h1-mobile-emprestimo-livros {
-      display: flex;
-      justify-content: center;
-      margin-left: 50%;
-      margin-top: 12px;
-      color: rgb(25, 132, 239);
-      font-size: 1.5rem;
-    }
     .content {
         margin-left: 100px;
         margin-right: 20px;
-        margin-top: 20px;
+        margin-top: 80px;
     }
 
   }
@@ -178,3 +217,21 @@
 
 }
 
+
+/* dark mode - js */
+.dark #btn-disponivel {
+  background-color: #dedede;
+  color: dodgerblue;
+}
+.dark .element-content {
+  box-shadow: 0 3px 12px rgba(255, 255, 255, 0.15);
+}
+.dark #searchInput, .dark #searchBtn {
+  border: 1px solid #dedede;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+  color: #dedede;
+}
+
+.dark #searchInput::placeholder {
+  color: #dedede;
+}

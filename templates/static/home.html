@@ -19,16 +19,16 @@
   </head>
   <body>
   {%block content%}
-    <!-- criar container para texto (ter margem à esquerda) -->
-    <h1 class="h1-mobile-emprestimo-livros">Catálogo de Livros</h1>
     <div class="header-top">
       <!-- <h1 class="h1-senai-tocantins">SENAI - TOCANTINS</h1> -->
+      <div class="container-top">
       <h1 class="h1-emprestimo-livros">Catálogo de Livros</h1>
-        <div class="input-container">
+      <div class="containerSearch">
           <form method="POST" action="{% url 'pesquisa' %}"> {% csrf_token %}
-            <input type="text" name="nome_book" placeholder="Digite o nome do livro">
-            <button type="submit">Pesquisar</button>
+            <input type="text" id="searchInput" name="nome_book" placeholder="Pesquise um livro... &#128270">
+            <button type="submit" id="searchBtn">Pesquisar</button>
           </form>
+        </div>
         </div>
       
 
@@ -59,7 +59,7 @@
     </div>
 
     {% endblock %}
-    <script src="{% static 'autenticar/js/darkReference.js' %}"></script>
-    <script src="autenticar/js/darkReference.js"></script>
+    <script src="{% static 'autenticar/js/menu.js' %}"></script>
+    <script src="autenticar/js/menu.js"></script>
 </body>
 </html>

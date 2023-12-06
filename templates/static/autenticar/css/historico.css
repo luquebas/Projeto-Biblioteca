@@ -142,3 +142,10 @@ a {
         align-items: center;
     }
 }
+
+/* dark mode - js */
+.dark .btn-graficoClass {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    color: black;
+    background-color: #dedede;
+}

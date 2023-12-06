@@ -65,7 +65,7 @@ main {
 }
 @media (max-width: 728px) {
   main {
-    margin-left: 16%;
+    margin-left: 36%;
     justify-content: center;
     overflow-x: auto;
     display: flex;
@@ -74,8 +74,6 @@ main {
      height: 60vh;
   }
   img {
-    float: inline-start;
-    width: 140px;
     display: none;
   }
   #containerBook {
@@ -88,4 +86,14 @@ main {
   button {
     margin-top: 12px;
   }
+}
+
+/* dark mode - js */
+.dark #asideInfo {
+  color: #dedede;
+}
+.dark .form_button {
+  border: 1px solid #dedede;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+  color: #dedede;
 }

@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="{% static 'autenticar/css/historico.css' %}">
     <link rel="stylesheet" href="autenticar/css/historico.css">
     {% endblock %}
-    <script src="autenticar/js/menu.js" defer></script>
 </head>
 <body>
   {%block content%}
@@ -23,13 +22,13 @@
     </div>
     <div class="container-btn-relatorio">
         <a href="{% url 'download_acervo' %}" download>
-            <button class="btn-graficoClass"> Gerar Relatório do Acervo &nbsp
+            <button class="btn-graficoClass btnHistorico"> Gerar Relatório do Acervo &nbsp
                 <i id="dwnld_acervo" class="bi bi-download"></i>
             </button>
         </a>
 
         <a href="{% url 'download_categorias' %}">
-            <button class="btn-graficoClass"> Visualizar Gráficos &nbsp
+            <button class="btn-graficoClass btnHistorico"> Visualizar Gráficos &nbsp
                 <i id="graficos" class="bi bi-graph-up"></i>
             </button>
         </a>
@@ -75,6 +74,7 @@
     </div>
 </div>
 {% endblock %}
-
+<script src="{% static 'autenticar/js/menu.js' %}"></script>
+<script src="autenticar/js/menu.js"></script>
 </body>
 </html>

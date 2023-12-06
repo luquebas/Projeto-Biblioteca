@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
+* {
+    font-family: poppins;
+}
+body {
+	margin:0;
+	padding:0;
+    height: 100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow-y: hidden;
+}	
+img {
+    width: 35vw;
+    height: 50vh;
+    float: right;
+    margin-top: 30px;
+}
+#conteiner {
+    width: 75%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+    z-index: 5;
+}   
+#conteiner .text {
+    width: 40vw;
+    height: 50vh;
+    font-size: 2.5rem;
+    display: fixed;
+    align-items: center;
+    flex-direction: column;
+    justify-content:center;
+    text-align: center;
+    color: rgba(78, 78, 78, 0.856);
+}   
+.text h1 {
+    color: #68B5C8;
+    font-size: 10rem;
+    height: 10vh;
+} 
+#btn-voltar {
+        font-family: poppins;
+        border: 1px solid black;
+        width: 300px; /* Alterado para 100% */
+        max-width: 300px; /* Adicionado max-width */
+        height: 36px;
+        border-radius: 8px;
+        background-color: rgba(89, 161, 235, 0.6); 
+        transition: 0.3s;
+        background-color: transparent;
+        border: 2px inset;
+        animation: pulseBorder 4s infinite;
+        outline: none;
+        cursor: pointer;
+}
+
+@keyframes pulseBorder {
+    0% {
+        border-color: rgba(0, 166, 255, 0.68); /* Define a cor inicial da borda */
+    }
+    50% {
+        border-color: rgb(5, 84, 127); /* Define a cor inicial da borda */
+    }
+    100% {
+        border-color: rgba(0, 166, 255, 0.68); /* Define a cor inicial da borda */
+    }
+}
+
+.container-btn {
+        width: 100%; /* Alterado para 100% */
+        display: flex;
+        justify-content: center;
+        margin: 0;
+}
+#btn-voltar:hover {
+         background-color: #6083D3;
+         color: #fff;
+}
+
+.circleBase {
+    border-radius: 50%;
+  }
+  
+  .circle1 {
+    width: 400px !important;
+    height: 400px !important;
+    margin-top: 900px !important ;
+    background: #68B5C8;
+    border: 1px solid #68B5C8;
+  }
+  
+  .circle2 {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 300px !important ;
+    background: #68B5C8;
+    border: 1px solid #68B5C8;
+  }
+
+
+
+@media (max-width:768px) {
+    img{
+        width: 80vw;
+        height: 50vh;
+        float: right;
+        margin-top: 30px;
+    }
+    P{
+        font-size: 0.8rem;
+    }
+
+    #conteiner {
+        width: 100vw;
+        height: 70vh;
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+        flex-direction: column;
+    }   
+
+    .circle1, .circle2 {
+        display: none;
+      }
+
+      .text h1 {
+        font-size: 8rem;
+    } 
+
+    #conteiner .text p  {
+        font-size: 1rem;
+
+    }   
+
+    #btn-voltar {
+        width: 200px; 
+        max-width: 200px; 
+    }
+
+    #conteiner .text {
+        width: 80vw;
+        height: 50vh;
+    }
+} 

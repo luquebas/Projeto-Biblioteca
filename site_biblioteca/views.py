@@ -12,6 +12,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 import io
 
+
 def init(request):
     if request.method == 'GET':
         return render(request, 'static/inicial.html')
@@ -130,7 +131,7 @@ def pesquisa(request):
             book = BookRegister.objects.get(nameBook=nome_book)
             return redirect('livroview', book_id=book.id)
         except BookRegister.DoesNotExist:
-            raise Http404('livro não encontrado')
+            return render(request, 'static/404.html', {})
     else:
         return redirect('home')
 
@@ -149,6 +150,7 @@ def registerbook(request):
             descricao = formRegistroLivros['descrição'].value()
             categoria = formRegistroLivros['categoria'].value()
             disponivel = formRegistroLivros['disponivel'].value()
+            image_content = return_image(nome)
     
             new_book = BookRegister(
                 nameBook=nome,
@@ -156,7 +158,7 @@ def registerbook(request):
                 estado=estado,
                 editoraBook=editora,
                 descrição=descricao,
-                image = return_image(nome),
+                image = image_content,
                 categoria = categoria,
                 disponivel = disponivel
             )
@@ -287,3 +289,8 @@ def logoutp(request):
     if request.user.is_authenticated:
         logout(request)
         return redirect('login_auth')
+    
+def handler404(request, exception):
+    response = render(request, 'templates/404.html', context={})
+    response.status_code = 404
+    return response

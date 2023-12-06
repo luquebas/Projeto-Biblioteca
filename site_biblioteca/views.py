@@ -131,7 +131,7 @@ def pesquisa(request):
             book = BookRegister.objects.get(nameBook=nome_book)
             return redirect('livroview', book_id=book.id)
         except BookRegister.DoesNotExist:
-            return render(request, 'static/404.html', {})
+            return redirect('pesquisa_not_found/')
     else:
         return redirect('home')
 

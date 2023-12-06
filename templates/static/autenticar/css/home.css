@@ -94,7 +94,7 @@
 #btn-disponivel {
   border-radius: 5px;
   border: none;
-  background-color: #e5e9f2;
+  background-color: rgba(0, 0, 0, 0.15) !important;
   margin-top: 10px;
   display: flex;
   justify-content: center;
